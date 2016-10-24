@@ -30,7 +30,6 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void iniInjector() {
-
     }
 
     @Override
