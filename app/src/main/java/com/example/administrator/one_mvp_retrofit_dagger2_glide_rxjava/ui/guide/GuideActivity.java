@@ -30,6 +30,7 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void iniInjector() {
+        //测试sutio提交git
     }
 
     @Override
