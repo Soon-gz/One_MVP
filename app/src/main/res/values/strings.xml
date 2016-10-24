@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ONE</string>
+    <!--应用的字符串 -->
+    <string name="welcome_btn">进入ONE3.0</string>
+    <string name="guide_msg">我的文艺生活</string>
+    <string name="toast_main_back_hint">再按一次返回键退出程序</string>
+    <string name="copyright">Copyright ©1997-2016 公司版权所有</string>
+</resources>
