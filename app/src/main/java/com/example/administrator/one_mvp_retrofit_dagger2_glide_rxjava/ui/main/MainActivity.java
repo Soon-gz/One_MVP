@@ -43,12 +43,6 @@ public class MainActivity extends BaseActivity implements MainMvpView<Mianbean> 
         textView.setText("我曹！");
     }
 
-
-    @OnClick(R.id.a)
-    public void toA(){
-        mPresenter.getData(1);
-    }
-
     @Override
     public void showData(List<Mianbean> data) {
         Log.i("tag00",data.get(0).getData().get(0).toString());
