@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
  * Created by ShuWen on 2016/10/15.
  */
 
-public abstract class BaseFragment extends Fragment{
+public abstract class BaseFragment extends Fragment {
     protected Bundle bundle;
     protected View mContentView;
 

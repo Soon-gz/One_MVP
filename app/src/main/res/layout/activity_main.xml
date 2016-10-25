@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/layoutAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.MainActivity">
+    android:orientation="vertical"
+    tools:context=".ui.main.MainActivity">
 
-    <TextView
-        android:id="@+id/a"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/main_search_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_icon_selector"
+            />
+        <ImageView
+            android:id="@+id/main_title_iv"
+            android:layout_width="@dimen/margin_size_40_dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/nav_title"/>
+        <TextView
+            android:id="@+id/main_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:visibility="gone"
+            android:text="阅读"/>
+        <ImageButton
+            android:id="@+id/main_individle_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/individual_center"
+            />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.25dip"
+        android:contentDescription="@null"
+        android:src="@color/light_gray" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0.25dip"
+        android:contentDescription="@null"
+        android:src="@color/light_gray" />
+    <RadioGroup
+        android:id="@+id/main_radio"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <RadioButton
+            android:checked="true"
+            android:id="@+id/one_home_page_button"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/sel_main_0"
+            />
+
+        <RadioButton
+            android:id="@+id/one_reading_page_button"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/sel_main_1_reading"
+            />
+
+        <RadioButton
+            android:id="@+id/one_music_page_button"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/sel_mian_2_music"
+            />
+
+        <RadioButton
+            android:id="@+id/one_movie_page_button"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/sel_main_3_movie"
+            />
+    </RadioGroup>
+</LinearLayout>

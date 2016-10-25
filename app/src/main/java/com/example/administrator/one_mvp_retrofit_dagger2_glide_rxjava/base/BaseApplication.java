@@ -11,7 +11,6 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.Ac
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.AppModule;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.ApplicationComponent;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.DaggerApplicationComponent;
-import com.socks.library.KLog;
 
 /**
  * Created by Shuwen on 2016/10/13.

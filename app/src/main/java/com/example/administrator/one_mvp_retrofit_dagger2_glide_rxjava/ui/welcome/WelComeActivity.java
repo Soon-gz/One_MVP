@@ -77,4 +77,8 @@ public class WelComeActivity extends BaseActivity {
         });
     }
 
+    @Override
+    public int getStatusColor() {
+        return R.color.welcome_white;
+    }
 }

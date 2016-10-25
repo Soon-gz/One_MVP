@@ -20,5 +20,4 @@ import dagger.Subcomponent;
 @Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
     //通过ActivityComponent提供Activity实例
-    void inject(MainActivity activity);
 }

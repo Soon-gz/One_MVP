@@ -94,7 +94,6 @@ public class WelcomeFragment extends Fragment {
     }
 
     public void startBtn(){
-        TLog.getInstance().i("开始动画");
         welcome_fragment_tv.setVisibility(View.VISIBLE);
         welcome_fragment_tv.startAnimation(animation);
         welcome_fragment_tv.setOnClickListener(new View.OnClickListener() {

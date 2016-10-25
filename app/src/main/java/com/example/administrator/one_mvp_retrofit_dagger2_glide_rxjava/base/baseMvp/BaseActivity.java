@@ -1,15 +1,22 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.BaseApplication;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.BaseEventBus;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ActivityManager;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ScreenUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.ActivityComponent;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.SystemStatusManager;
+import com.socks.library.KLog;
 
 import butterknife.ButterKnife;
 
@@ -52,11 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity{
             ToastUtils.showToast(getResources().getString(R.string.toast_main_back_hint));
         } else {
             //返回桌面
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addCategory(Intent.CATEGORY_HOME);
             ActivityManager.getInstance().finishAllActivity();
-            startActivity(intent);
         }
     }
 
@@ -77,7 +80,38 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+        if (getStatusColor() != 0){
+            setTranslucentStatus();
+        }
         ButterKnife.bind(this);
+    }
+
+    private void setTranslucentStatus() {
+        //判断版本是4.4以上
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            KLog.e("FLAG_TRANSLUCENT_STATUS");
+            Window win = getWindow();
+            WindowManager.LayoutParams winParams = win.getAttributes();
+            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            winParams.flags |= bits;
+            win.setAttributes(winParams);
+
+            SystemStatusManager tintManager = new SystemStatusManager(this);
+            //打开系统状态栏控制
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintColor(getStatusColor());
+            tintManager.setStatusBarTintResource(getStatusColor());//设置背景
+            View layoutAll = findViewById(R.id.layoutAll);
+            if (layoutAll != null) {
+                //设置系统栏需要的内偏移
+                layoutAll.setPadding(0, ScreenUtils.getStatusHeight(this), 0, 0);
+            }
+        }
+    }
+
+    //获取状态栏颜色，设置状态栏沉浸式，还有4.4以下的版本，这里就不做演示了
+    public int getStatusColor(){
+        return 0;
     }
 
     //EventBus的使用，用于组件之间的数据交互

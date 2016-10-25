@@ -72,4 +72,9 @@ public class GuideActivity extends BaseActivity {
                 break;
         }
     }
+
+    @Override
+    public int getStatusColor() {
+        return R.color.white;
+    }
 }

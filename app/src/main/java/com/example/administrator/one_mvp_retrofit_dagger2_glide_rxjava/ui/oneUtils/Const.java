@@ -19,4 +19,9 @@ public class Const {
     //进入引导页
     public static final int START_GUIDE = 1;
 
+    //主页fragment的标签
+    public static final int MAIN_PAGE_FRAGMENT = 0;
+    public static final int READING_PAGE_FRAGMENT = 1;
+    public static final int MUSIC_PAGE_FRAGMENT = 2;
+    public static final int MOVIE_PAGE_FRAGMENT = 3;
 }
