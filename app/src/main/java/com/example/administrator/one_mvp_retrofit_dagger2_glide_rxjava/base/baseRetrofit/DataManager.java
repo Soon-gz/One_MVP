@@ -19,8 +19,12 @@ public class DataManager {
         this.apiService = apiService;
     }
 
-    public Observable<JSONObject> getdatas(int page) {
-        return apiService.getDatas(page);
+    /**
+     * 获取主页展示数据
+     * @return
+     */
+    public Observable<JSONObject> getMainPageData() {
+        return apiService.getDatas();
     }
 
 

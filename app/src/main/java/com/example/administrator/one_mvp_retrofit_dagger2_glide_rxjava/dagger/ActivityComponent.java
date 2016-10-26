@@ -1,6 +1,9 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger;
 
+import android.content.Context;
+
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.main.MainActivity;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment;
 
 import dagger.Subcomponent;
 
@@ -20,4 +23,6 @@ import dagger.Subcomponent;
 @Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
     //通过ActivityComponent提供Activity实例
+    void inject(MainPageFragment mainPageFragment);
+
 }

@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
-        FragmentHelper.initFragments(getFragmentManager());
+        FragmentHelper.initFragments(getSupportFragmentManager());
         FragmentHelper.initMainFragments();
         initListener();
     }

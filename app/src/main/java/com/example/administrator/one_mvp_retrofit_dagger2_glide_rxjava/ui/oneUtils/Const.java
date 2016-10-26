@@ -24,4 +24,10 @@ public class Const {
     public static final int READING_PAGE_FRAGMENT = 1;
     public static final int MUSIC_PAGE_FRAGMENT = 2;
     public static final int MOVIE_PAGE_FRAGMENT = 3;
+
+    //主页创建viewpager的Fragment标记
+    public static final String PAGE_MAIN_IS_FIRST = "PAGE_MAIN_IS_FIRST";
+    public static final String PAGE_MAIN_IS_LAST = "PAGE_MAIN_IS_LAST";
+    public static final String PAGE_MAIN_OTHER = "PAGE_MAIN_OTHER";
+
 }

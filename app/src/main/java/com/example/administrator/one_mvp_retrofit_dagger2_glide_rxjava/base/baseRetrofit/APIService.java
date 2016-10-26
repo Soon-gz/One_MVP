@@ -11,6 +11,10 @@ import rx.Observable;
  * 项目提供数据协议
  */
 public interface APIService {
-    @GET("idlist/{page}")
-    Observable<JSONObject> getDatas(@Path("page")int page);
+    /**
+     * 获取MainPageFragment的数据标记
+     * @return
+     */
+    @GET("hp/idlist/0")
+    Observable<JSONObject> getDatas();
 }

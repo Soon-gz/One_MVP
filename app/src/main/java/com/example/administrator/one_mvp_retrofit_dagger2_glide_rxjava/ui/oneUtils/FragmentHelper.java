@@ -1,9 +1,9 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils;
 
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.Context;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;

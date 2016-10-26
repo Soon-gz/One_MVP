@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.welcome.WelComeActivity"/>
+        <activity android:name=".ui.welcome.WelComeActivity" />
         <activity android:name=".ui.guide.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.issue.IssueActivity"></activity>
     </application>
 
 </manifest>

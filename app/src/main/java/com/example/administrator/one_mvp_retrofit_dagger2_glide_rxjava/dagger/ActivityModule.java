@@ -1,6 +1,7 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger;
 
 import android.app.Activity;
+import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
@@ -20,5 +21,11 @@ public class ActivityModule {
     @PerActivity
     public Activity prividesActivity(){
         return mActivity;
+    }
+
+    @Provides
+    @PerActivity
+    public Context providesContext(){
+        return mActivity.getBaseContext();
     }
 }

@@ -57,6 +57,7 @@ dependencies {
     compile 'com.google.dagger:dagger:2.2'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.android.support:support-v4:24.2.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'

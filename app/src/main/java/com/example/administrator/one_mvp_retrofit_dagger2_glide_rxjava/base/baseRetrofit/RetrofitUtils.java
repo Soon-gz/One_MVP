@@ -11,7 +11,7 @@ import retrofit.RxJavaCallAdapterFactory;
  */
 
 public class RetrofitUtils {
-    public static final String BASE_URL = "http://v3.wufazhuce.com:8000/api/hp/";
+    public static final String BASE_URL = "http://v3.wufazhuce.com:8000/api/";
     public static Retrofit singleton;
     public static <T> T createApi(Class<T> clazz, Interceptor interceptor, RxJavaCallAdapterFactory factory) {
         //if (singleton == null) {
