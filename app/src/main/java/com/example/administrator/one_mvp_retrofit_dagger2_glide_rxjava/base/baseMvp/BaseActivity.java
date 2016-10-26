@@ -1,6 +1,5 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +12,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.Base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.BaseEventBus;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ActivityManager;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ScreenUtils;
-import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.ActivityComponent;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.SystemStatusManager;
-import com.socks.library.KLog;
 
 import butterknife.ButterKnife;
 
@@ -27,8 +24,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity{
 
     private ActivityComponent mActivityComponent;
-    private long currentBackPressedTime = 0;                   // 点击返回键时间
-    private static final int BACK_PRESSED_INTERVAL = 1000;    // 两次点击返回键时间间隔
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,20 +44,6 @@ public abstract class BaseActivity extends AppCompatActivity{
         ActivityManager.getInstance().putActivity(this);
     }
 
-    /**
-     * 连续两次点击返回键，回到桌面
-     */
-    @Override
-    public void onBackPressed() {
-        // 判断时间间隔
-        if (System.currentTimeMillis() - currentBackPressedTime > BACK_PRESSED_INTERVAL) {
-            currentBackPressedTime = System.currentTimeMillis();
-            ToastUtils.showToast(getResources().getString(R.string.toast_main_back_hint));
-        } else {
-            //返回桌面
-            ActivityManager.getInstance().finishAllActivity();
-        }
-    }
 
     public ActivityComponent activityComponent() {
         if (mActivityComponent == null) {
@@ -75,6 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity{
         super.onDestroy();
         //将activity从自定义管理栈中移除
         ActivityManager.getInstance().finishACtivity(this);
+        ButterKnife.unbind(this);
     }
 
     @Override
@@ -89,7 +72,6 @@ public abstract class BaseActivity extends AppCompatActivity{
     private void setTranslucentStatus() {
         //判断版本是4.4以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            KLog.e("FLAG_TRANSLUCENT_STATUS");
             Window win = getWindow();
             WindowManager.LayoutParams winParams = win.getAttributes();
             final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;

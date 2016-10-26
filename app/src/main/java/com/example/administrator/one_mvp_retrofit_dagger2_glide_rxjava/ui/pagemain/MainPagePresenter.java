@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BasePresenter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseRetrofit.DataManager;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseSubscribe;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ProgressDialogHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger.PerActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.GsonHelper;
@@ -42,26 +43,15 @@ public class MainPagePresenter extends BasePresenter<MainPageMvpView<MainPageBea
      * 获取主页展示数据
      */
     public void getMainpageData(){
-        ProgressDialogHelper.getInstance().showProgressDialog(mContext,"正在加载中...");
         mSubscription = mDataManager.getMainPageData()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<JSONObject>() {
-            @Override
-            public void onCompleted() {
-                ProgressDialogHelper.getInstance().hideProgressDialog();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(JSONObject jsonObject) {
-                mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MainPageBean.class));
-            }
-        });
+                .subscribe(new BaseSubscribe<JSONObject>(mContext) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MainPageBean.class));
+                    }
+                });
     }
 
 

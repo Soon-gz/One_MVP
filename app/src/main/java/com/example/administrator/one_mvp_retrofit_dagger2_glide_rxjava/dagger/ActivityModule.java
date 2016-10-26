@@ -25,7 +25,8 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    public Context providesContext(){
-        return mActivity.getBaseContext();
+    Context providesContext() {
+        return mActivity;
     }
+
 }

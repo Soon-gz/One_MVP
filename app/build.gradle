@@ -44,7 +44,6 @@ dependencies {
     //retrofit 网络请求
     //dagger 2.2
     //rxAndroid
-    compile files('libs/Klog.jar')
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.android.support:appcompat-v7:24.2.0'
