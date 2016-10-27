@@ -7,6 +7,7 @@ import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
+import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -44,4 +45,12 @@ public interface APIService {
     Observable<JSONObject> postPraise(@Field("itemid")String itemid, @Field("type")String type,
                                       @Field("deviceid")String deviceid, @Field("version")String version,
                                       @Field("devicetype")String devicetype, @Field("platform")String platform);
+
+    /**
+     * 查看往期数据
+     * @param date
+     * @return
+     */
+    @GET("hp/bymonth/{date}")
+    Observable<JSONObject> getMainPageIssueAll(@Path("date") String date);
 }

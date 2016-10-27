@@ -46,4 +46,13 @@ public class DataManager {
         return apiService.postPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android");
     }
 
+    /**
+     * 查看主页往期数据
+     * @param date
+     * @return
+     */
+    public Observable<JSONObject> getMainPageIssueAll(String date){
+        return apiService.getMainPageIssueAll(date);
+    }
+
 }

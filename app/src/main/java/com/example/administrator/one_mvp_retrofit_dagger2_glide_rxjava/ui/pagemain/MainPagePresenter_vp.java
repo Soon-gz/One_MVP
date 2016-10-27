@@ -48,7 +48,7 @@ public class MainPagePresenter_vp extends BasePresenter<MainPageMvpView_vp<MainP
         subscription = dataManager.getMainPageDetail(hpcontent_id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new BaseSubscribe<JSONObject>(mContext) {
+                .subscribe(new BaseSubscribe<JSONObject>(mContext,false) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
                         mIBaseMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MainPageHomeBean.class));

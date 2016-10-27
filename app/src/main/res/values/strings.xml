@@ -8,6 +8,7 @@
     <string name="reading_page_title">阅读</string>
     <string name="music_page_title">音乐</string>
     <string name="movie_page_title">电影</string>
+    <string name="main_issue">往期列表</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
