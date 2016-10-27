@@ -1,13 +1,16 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_page_framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment_vp">
+    <!-- 左拉刷新-->
+    <include layout="@layout/pull_left_refresh"
+        android:visibility="gone"/>
+    <!-- 主页数据-->
+    <include layout="@layout/main_page_home"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+    <!-- 右拉进入往期-->
+    <include layout="@layout/pull_right_issue"
+        android:visibility="gone"/>
 </FrameLayout>

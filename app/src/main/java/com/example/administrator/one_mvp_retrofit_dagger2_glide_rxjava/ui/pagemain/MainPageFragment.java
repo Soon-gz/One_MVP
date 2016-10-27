@@ -8,8 +8,9 @@ import android.support.v4.view.ViewPager;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.DepthPageTransformer;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
-import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.IssueActivity;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.MainIssueActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.BaseFgAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 
@@ -20,7 +21,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 
-public class MainPageFragment extends BaseFragment implements MainPageMvpView<MainPageBean> {
+public class MainPageFragment extends BaseFragment implements MainPageMvpView<MainPageBean>, ViewPager.OnPageChangeListener {
 
     @Inject
     MainPagePresenter mPresenter;
@@ -41,29 +42,8 @@ public class MainPageFragment extends BaseFragment implements MainPageMvpView<Ma
         fragment_vps = new ArrayList<>();
         baseFgAdapter = new BaseFgAdapter(getChildFragmentManager(),fragment_vps);
         main_page_viewpager.setAdapter(baseFgAdapter);
-        main_page_viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == fragment_vps.size()-1) {
-                    Intent intent = new Intent(getActivity(), IssueActivity.class);
-                    startActivity(intent);
-                    main_page_viewpager.setCurrentItem(fragment_vps.size()-2);
-                } else if (position == 0) {
-                    main_page_viewpager.setCurrentItem(1);
-
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        main_page_viewpager.addOnPageChangeListener(this);
+        main_page_viewpager.setPageTransformer(false,new DepthPageTransformer());
     }
 
     @Override
@@ -89,6 +69,33 @@ public class MainPageFragment extends BaseFragment implements MainPageMvpView<Ma
                 TLog.getInstance().i(data.getData().get(index));
             }
         }
+        notifyDataChangedViewPager();
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        //设置左滑刷新，右滑更多
+        if (position == fragment_vps.size()-1) {
+            main_page_viewpager.setCurrentItem(fragment_vps.size()-2);
+            Intent intent = new Intent(getActivity(), MainIssueActivity.class);
+            startActivity(intent);
+        } else if (position == 0) {
+            main_page_viewpager.setCurrentItem(1);
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    public void notifyDataChangedViewPager(){
         baseFgAdapter.notifyDataSetChanged();
+        main_page_viewpager.setCurrentItem(1);
     }
 }

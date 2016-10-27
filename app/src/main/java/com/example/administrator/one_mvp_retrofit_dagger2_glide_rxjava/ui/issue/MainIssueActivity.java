@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 
-public class IssueActivity extends BaseActivity {
+public class MainIssueActivity extends BaseActivity {
 
     @Override
     protected int getContentViewLayoutID() {

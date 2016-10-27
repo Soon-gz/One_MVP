@@ -8,6 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.IssueActivity">
+    tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.MainIssueActivity">
 
 </RelativeLayout>

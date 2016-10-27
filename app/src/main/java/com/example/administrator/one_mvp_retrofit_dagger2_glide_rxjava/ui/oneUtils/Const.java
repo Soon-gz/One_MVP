@@ -30,4 +30,10 @@ public class Const {
     public static final String PAGE_MAIN_IS_LAST = "PAGE_MAIN_IS_LAST";
     public static final String PAGE_MAIN_OTHER = "PAGE_MAIN_OTHER";
 
+    //post请求返回状态
+    public static final String POST_SUCCESS = "success";
+
+    //点赞类型
+    public static final String HP_CONTENT = "hpcontent";
+
 }

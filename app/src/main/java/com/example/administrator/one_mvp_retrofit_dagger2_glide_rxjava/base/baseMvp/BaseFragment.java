@@ -14,13 +14,11 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseFragment extends Fragment {
-    protected Bundle bundle;
     protected View mContentView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bundle = getArguments();
         //注入控制器
         iniInjector();
     }

@@ -13,7 +13,6 @@ import org.json.JSONObject;
 
 import javax.inject.Inject;
 
-import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -29,7 +28,7 @@ public class MainPagePresenter extends BasePresenter<MainPageMvpView<MainPageBea
     private Context mContext;
 
     @Inject
-    public MainPagePresenter(DataManager mDataManager,@PerActivity Context context) {
+    public MainPagePresenter(DataManager mDataManager, Context context) {
         this.mDataManager = mDataManager;
         mContext = context;
     }
