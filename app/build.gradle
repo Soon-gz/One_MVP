@@ -60,4 +60,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.commit451:PhotoView:1.2.4'
 }
