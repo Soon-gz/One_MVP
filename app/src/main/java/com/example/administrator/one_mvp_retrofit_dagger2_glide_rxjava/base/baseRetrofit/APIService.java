@@ -53,4 +53,11 @@ public interface APIService {
      */
     @GET("hp/bymonth/{date}")
     Observable<JSONObject> getMainPageIssueAll(@Path("date") String date);
+
+    /**
+     * 获取阅读界面的数据
+     * @return
+     */
+    @GET("reading/index/{page}")
+    Observable<JSONObject> getReadingData(@Path("page")String page);
 }

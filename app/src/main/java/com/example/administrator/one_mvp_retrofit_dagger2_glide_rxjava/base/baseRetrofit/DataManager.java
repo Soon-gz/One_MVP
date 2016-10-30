@@ -55,4 +55,13 @@ public class DataManager {
         return apiService.getMainPageIssueAll(date);
     }
 
+    /**
+     * 获取阅读界面数据
+     * @param page
+     * @return
+     */
+    public Observable<JSONObject> getReadingData(String page){
+        return apiService.getReadingData(page);
+    }
+
 }

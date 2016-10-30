@@ -5,6 +5,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment_vp;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPagePresenter_vp;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagereading.ReadingFragment_vp;
 
 import dagger.Subcomponent;
 
@@ -27,4 +28,5 @@ public interface ActivityComponent {
     void inject(MainPageFragment mainPageFragment);
     void inject(MainPageFragment_vp mainPageFragment_vp);
     void inject(MainIssueActivity mainIssueActivity);
+    void inject(ReadingFragment_vp readingFragment_vp);
 }

@@ -51,5 +51,9 @@ public class Const {
     public static final String FEB = "Feb";
     public static final String JAN = "Jan";
 
+    //阅读类型
+    public static final String ESSAY = "1";//短篇
+    public static final String SERIAL = "2";//连载
+    public static final String QUESTION = "3";//问答
 
 }

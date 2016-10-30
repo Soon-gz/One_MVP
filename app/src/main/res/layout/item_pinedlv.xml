@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/default_bg_color" >
+        <TextView
+            android:id="@+id/title"
+            android:textColor="@color/light_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/content_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/essay_image"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="新手跑步要做哪些准备？"
+            android:textSize="18sp"
+            android:textColor="@color/one_title_bg_night_gray" />
+        <TextView
+            android:id="@+id/text_reading_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="吴清源"
+            android:textColor="@color/one_title_bg_night_gray"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/text_reading_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/one_title_bg_night_gray"
+            android:text="离开房间睡多了快放假了快速的减肥了上的空间发了快速的减肥了肯定是家里看电视风景的路上开房间"/>
+    </LinearLayout>
+</LinearLayout>

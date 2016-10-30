@@ -66,7 +66,6 @@ public class MainPageFragment extends BaseFragment implements MainPageMvpView<Ma
                 fragment_vps.add(MainPageFragment_vp.newInstance(Const.PAGE_MAIN_IS_LAST,""));
             }else {
                 fragment_vps.add(MainPageFragment_vp.newInstance(Const.PAGE_MAIN_OTHER,data.getData().get(index)));
-                TLog.getInstance().i(data.getData().get(index));
             }
         }
         notifyDataChangedViewPager();

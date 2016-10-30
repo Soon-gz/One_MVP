@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.BaseFgAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 
@@ -39,6 +40,7 @@ public class ReadingFragment extends BaseFragment implements ViewPager.OnPageCha
         baseFgAdapter = new BaseFgAdapter(getFragmentManager(),dataList);
         reading_page_viewPager.setAdapter(baseFgAdapter);
         reading_page_viewPager.addOnPageChangeListener(this);
+        reading_page_viewPager.setCurrentItem(1);
     }
 
     @Override
@@ -58,7 +60,13 @@ public class ReadingFragment extends BaseFragment implements ViewPager.OnPageCha
 
     @Override
     public void onPageSelected(int position) {
-
+        if (position == 0){
+            reading_page_viewPager.setCurrentItem(1);
+            ToastUtils.showToast("刷新数据");
+        }else if (position == 2){
+            reading_page_viewPager.setCurrentItem(1);
+            ToastUtils.showToast("往期数据");
+        }
     }
 
     @Override
