@@ -4,6 +4,8 @@ package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUt
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
@@ -59,5 +61,15 @@ public class FragmentHelper {
             }
         }
         fragmentTransaction.commit();
+    }
+    //显示布局
+    public static void showLayoutId(FrameLayout frameLayout,int layoutId){
+        for (int index = 0; index < frameLayout.getChildCount(); index++) {
+            if (index == layoutId){
+                frameLayout.getChildAt(index).setVisibility(View.VISIBLE);
+            }else {
+                frameLayout.getChildAt(index).setVisibility(View.GONE);
+            }
+        }
     }
 }
