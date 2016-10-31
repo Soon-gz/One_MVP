@@ -60,4 +60,11 @@ public interface APIService {
      */
     @GET("reading/index/{page}")
     Observable<JSONObject> getReadingData(@Path("page")String page);
+
+    /**
+     * 获取阅读界面的轮播图
+     * @return
+     */
+    @GET("reading/carousel/")
+    Observable<JSONObject> getReadingHeadImgs();
 }

@@ -2,15 +2,19 @@ package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pager
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
@@ -22,6 +26,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUti
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.inject.Inject;
 
@@ -32,7 +38,7 @@ import butterknife.Bind;
  * Use the {@link ReadingFragment_vp#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpView{
+public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpView, AbsListView.OnScrollListener, View.OnTouchListener, ViewPager.OnPageChangeListener {
 
     @Inject
     ReadingFVPPresenter mPresenter;
@@ -54,6 +60,24 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
     private CustomAdapter customAdapter;
     private LinearLayout linearLayout;
     private ViewPager viewpager_reading_head;
+    private boolean isBottom = false;
+    private String page = "0";
+    private int currentPage = 0 ;
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    currentPage++;
+                    if (currentPage>8){
+                        currentPage = 0;
+                    }
+                    viewpager_reading_head.setCurrentItem(currentPage);
+                    break;
+            }
+        }
+    };
 
 
     public ReadingFragment_vp() {
@@ -78,8 +102,12 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
         initLayoutId(mParam1);
     }
 
-    private void loadNetData() {
-        mPresenter.getReadingData("0","1");
+    private void loadNetData(String page,boolean showProgress) {
+        mPresenter.getReadingData(page,showProgress);
+    }
+
+    private void loadImgs(){
+        mPresenter.getReadingHeadImgs();
     }
 
     /**
@@ -98,19 +126,12 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
         rfvpAdapter = new RFVPAdapter(list_img);
         reading_page_ListView.setAdapter(customAdapter);
         viewpager_reading_head.setAdapter(rfvpAdapter);
-
-        reading_page_ListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if ( view instanceof PinnedHeaderListView) {
-                    ((PinnedHeaderListView) view).controlPinnedHeader(firstVisibleItem);
-                }
-            }
-        });
+        //设置滑动监听事件
+        reading_page_ListView.setOnScrollListener(this);
+        //防止冲突
+        viewpager_reading_head.setOnTouchListener(this);
+        //设置viewpager监听事件
+        viewpager_reading_head.addOnPageChangeListener(this);
     }
 
     private void initDots(View view) {
@@ -133,7 +154,8 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
             case Const.PAGE_MAIN_OTHER:
                 showLayoutId(1);
                 initListenerAndData();
-                loadNetData();
+                loadNetData(page,true);
+                loadImgs();
                 break;
             case Const.PAGE_MAIN_IS_LAST:
                 showLayoutId(2);
@@ -164,7 +186,20 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
 
     @Override
     public void showHeadImags(ReadingFVPImagsBean imagsBean) {
-
+        for (int index = 0; index < imagsBean.getData().size(); index++) {
+            ImageView imageView = new ImageView(getActivity());
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            Glide.with(getActivity()).load(imagsBean.getData().get(index).getCover()).thumbnail(0.1f).dontAnimate().into(imageView);
+            list_img.add(imageView);
+        }
+        //轮播图每3秒一转
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.sendEmptyMessage(0);
+            }
+        }, 0, 3000);
+        rfvpAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -175,5 +210,47 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
 
     @Override
     public void showData(Object data) {
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        //这里可以做简单的分页加载
+        if ("0".equals(page) && isBottom && i == SCROLL_STATE_IDLE){
+            page = "1";
+            loadNetData(page,false);
+        }
+    }
+
+    @Override
+    public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+        isBottom = (i+i1 == i2);
+        if ( absListView instanceof PinnedHeaderListView) {
+            ((PinnedHeaderListView) absListView).controlPinnedHeader(i);
+        }
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        viewpager_reading_head.getParent().requestDisallowInterceptTouchEvent(true);
+        return false;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        currentPage = position;
+        for (int i = 0; i < 9; i++) {
+            dots[i].setEnabled(true);
+        }
+        dots[position].setEnabled(false);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

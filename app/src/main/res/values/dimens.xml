@@ -9,6 +9,7 @@
     <!-- View大小或者缩进大小-->
     <dimen name="margin_size_1_dp">1dp</dimen>
     <dimen name="margin_size_2_dp">2dp</dimen>
+    <dimen name="margin_size_3_dp">3dp</dimen>
     <dimen name="margin_size_4_dp">4dp</dimen>
     <dimen name="margin_size_6_dp">6dp</dimen>
     <dimen name="margin_size_8_dp">8dp</dimen>

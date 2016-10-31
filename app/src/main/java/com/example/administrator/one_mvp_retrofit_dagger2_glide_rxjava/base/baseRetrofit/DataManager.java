@@ -64,4 +64,12 @@ public class DataManager {
         return apiService.getReadingData(page);
     }
 
+    /**
+     * 获取阅读界面轮播图
+     * @return
+     */
+    public Observable<JSONObject> getReadingHeadImgs(){
+        return apiService.getReadingHeadImgs();
+    }
+
 }

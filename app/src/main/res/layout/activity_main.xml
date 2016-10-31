@@ -57,7 +57,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0.25dip"
         android:contentDescription="@null"
-        android:src="@drawable/divi_image" />
+        android:src="@color/light_gray" />
     <RadioGroup
         android:id="@+id/main_radio"
         android:layout_width="fill_parent"

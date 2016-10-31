@@ -26,8 +26,8 @@
     </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_size_6_dp"
-        android:src="@drawable/divi_image_2"/>
+        android:layout_height="@dimen/margin_size_4_dp"
+        android:background="@drawable/divi_image_2"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/main_page_issue_rv"

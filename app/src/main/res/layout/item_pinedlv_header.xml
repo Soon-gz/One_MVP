@@ -12,6 +12,6 @@
         android:padding="10dp" />
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="6dp"
+        android:layout_height="@dimen/margin_size_3_dp"
         android:background="@drawable/shadow_bottom"/>
 </LinearLayout>

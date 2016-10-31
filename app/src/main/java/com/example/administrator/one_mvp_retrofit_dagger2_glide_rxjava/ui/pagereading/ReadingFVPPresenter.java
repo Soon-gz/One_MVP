@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BasePresenter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseRetrofit.DataManager;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseSubscribe;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.GsonHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.JsonUtils;
 
@@ -43,21 +44,34 @@ public class ReadingFVPPresenter extends BasePresenter<ReadingFVPMvpView> {
         this.mMvpView = mMvpView;
     }
 
-    public void getReadingData(String page1, final String page2){
+    /**
+     * 获取阅读界面数据
+     * @param page1
+     */
+    public void getReadingData(String page1,boolean showProgress){
         subscription = dataManager.getReadingData(page1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .flatMap(new Func1<JSONObject, Observable<JSONObject>>() {
-                    @Override
-                    public Observable<JSONObject> call(JSONObject jsonObject) {
-                        mMvpView.showData(JsonUtils.getItemEntitys(jsonObject.toString()));
-                        return dataManager.getReadingData(page2);
-                    }
-                })
-                .subscribe(new BaseSubscribe<JSONObject>(context) {
+                .subscribe(new BaseSubscribe<JSONObject>(context,showProgress) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
+                        TLog.getInstance().i(jsonObject.toString());
                         mMvpView.showData(JsonUtils.getItemEntitys(jsonObject.toString()));
+                    }
+                });
+    }
+
+    /**
+     * 获取阅读界面的轮播图
+     */
+    public void getReadingHeadImgs(){
+        subscription = dataManager.getReadingHeadImgs()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.showHeadImags(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),ReadingFVPImagsBean.class));
                     }
                 });
     }

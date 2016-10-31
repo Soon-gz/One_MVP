@@ -119,6 +119,7 @@ public abstract class BaseSubscribe<T> extends Subscriber<T> {
     public void onError(Throwable e) {
         hideProgress();
         ToastUtils.showToast("网络数据请求失败"+"\n"+e.toString());
+        TLog.getInstance().i(e.toString());
     }
 
     @Override

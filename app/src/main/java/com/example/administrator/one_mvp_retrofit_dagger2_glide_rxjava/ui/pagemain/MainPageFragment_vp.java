@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.StringUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.PostResultBean;
@@ -130,8 +131,10 @@ public class MainPageFragment_vp extends BaseFragment implements MainPageMvpView
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (b){
-            main_page_land_number.setText(Integer.parseInt(main_page_land_number.getText().toString())+1+"");
-            mPresenter.postPraise(mParam2,Const.HP_CONTENT);
+            if (!StringUtils.isEmpty(main_page_land_number.getText().toString())){
+                main_page_land_number.setText(Integer.parseInt(main_page_land_number.getText().toString())+1+"");
+                mPresenter.postPraise(mParam2,Const.HP_CONTENT);
+            }
         }else {
             main_page_land_number.setText(Integer.parseInt(main_page_land_number.getText().toString())-1+"");
         }
