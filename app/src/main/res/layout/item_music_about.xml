@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_music_detail_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="所属专辑：鲸鱼马戏团 Vol.2 Whisper\r\n演唱者：鲸鱼马戏团\r\n作曲：李星宇\r\n编曲：李星宇\r\n唱片公司：虾米音乐人\r\n唱片编号：XA-006\r\n发行时间：2015年03月25日\r\n专辑类别：录音室专辑"/>
+    <TextView
+        android:id="@+id/text_music_about_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="（责任编辑：叶耶耶子）"
+        android:padding="15dp"
+        />
+</LinearLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_music_lyric_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="纯音乐曲目，敬请欣赏。"/>
+    <TextView
+        android:id="@+id/text_music_lyric_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="（责任编辑：叶耶耶子）"
+        android:padding="15dp"
+        />
+</LinearLayout>

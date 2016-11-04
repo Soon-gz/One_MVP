@@ -56,4 +56,8 @@ public class Const {
     public static final String SERIAL = "2";//连载
     public static final String QUESTION = "3";//问答
 
+    //音乐界面多样式布局
+    public static final int MUSIC_HEAD_ITEM = 100;
+    public static final int MUSIC_CONTENT_ITEM = 200;
+
 }

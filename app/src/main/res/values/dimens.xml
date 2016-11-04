@@ -39,6 +39,7 @@
     <dimen name="margin_size_90_dp">90dp</dimen>
     <dimen name="margin_size_95_dp">95dp</dimen>
     <dimen name="margin_size_100_dp">100dp</dimen>
+    <dimen name="margin_size_110_dp">110dp</dimen>
     <dimen name="margin_size_120_dp">120dp</dimen>
     <dimen name="margin_size_140_dp">140dp</dimen>
     <dimen name="margin_size_160_dp">160dp</dimen>
