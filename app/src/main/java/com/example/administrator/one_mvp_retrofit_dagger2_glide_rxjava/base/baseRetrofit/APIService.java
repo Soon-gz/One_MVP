@@ -67,4 +67,20 @@ public interface APIService {
      */
     @GET("reading/carousel/")
     Observable<JSONObject> getReadingHeadImgs();
+
+
+    /**
+     * 获取音乐界面需要展示的数据
+     * @return
+     */
+    @GET("music/idlist/0")
+    Observable<JSONObject> getMusicPageData();
+
+    /**
+     * 获取音乐详细信息
+     * @param musicId
+     * @return
+     */
+    @GET("music/detail/{musicId}")
+    Observable<JSONObject> getMusicHomeData(@Path("musicId") String musicId);
 }

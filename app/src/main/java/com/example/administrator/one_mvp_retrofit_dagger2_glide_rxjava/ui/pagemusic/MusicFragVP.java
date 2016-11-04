@@ -9,13 +9,20 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 
-public class MusicFragVP extends BaseFragment {
+public class MusicFragVP extends BaseFragment implements MusicFragVPMvpView<MusicFragVPDataBean> {
+
+    @Inject
+    MusicFragVPresenter mPresenter;
 
     @Bind(R.id.music_page_frame)
     FrameLayout music_page_frame;
@@ -56,6 +63,7 @@ public class MusicFragVP extends BaseFragment {
                 break;
             case Const.PAGE_MAIN_OTHER:
                 FragmentHelper.showLayoutId(music_page_frame,1);
+                mPresenter.getMusicDetail(mParam2);
                 break;
             case Const.PAGE_MAIN_IS_LAST:
                 FragmentHelper.showLayoutId(music_page_frame,2);
@@ -65,7 +73,8 @@ public class MusicFragVP extends BaseFragment {
 
     @Override
     protected void iniInjector() {
-
+        ((BaseActivity)getActivity()).activityComponent().inject(this);
+        mPresenter.attachView(this);
     }
 
     @Override
@@ -73,4 +82,8 @@ public class MusicFragVP extends BaseFragment {
         return R.layout.fragment_music_frag_v;
     }
 
+    @Override
+    public void showData(MusicFragVPDataBean data) {
+
+    }
 }

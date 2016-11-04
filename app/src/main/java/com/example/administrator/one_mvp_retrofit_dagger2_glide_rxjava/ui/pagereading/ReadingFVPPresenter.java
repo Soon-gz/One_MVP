@@ -55,7 +55,6 @@ public class ReadingFVPPresenter extends BasePresenter<ReadingFVPMvpView> {
                 .subscribe(new BaseSubscribe<JSONObject>(context,showProgress) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
-                        TLog.getInstance().i(jsonObject.toString());
                         mMvpView.showData(JsonUtils.getItemEntitys(jsonObject.toString()));
                     }
                 });

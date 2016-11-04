@@ -72,4 +72,22 @@ public class DataManager {
         return apiService.getReadingHeadImgs();
     }
 
+    /**
+     * 获取音乐界面需要展示的数据
+     * @return
+     */
+    public Observable<JSONObject> getMusicPageData(){
+        return apiService.getMusicPageData();
+    }
+
+
+    /**
+     * 获取音乐详细信息
+     * @param musicId
+     * @return
+     */
+    public Observable<JSONObject> getMusicDetailData(String musicId){
+        return apiService.getMusicHomeData(musicId);
+    }
+
 }
