@@ -8,7 +8,7 @@
         android:id="@+id/text_music_lyric_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"
+        android:padding="10dp"
         android:text="纯音乐曲目，敬请欣赏。"/>
     <TextView
         android:id="@+id/text_music_lyric_author"

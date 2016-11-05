@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.issue.MainIssueActivity"></activity>
+        <activity android:name=".ui.issue.MainIssueActivity" />
+        <activity android:name=".ui.Comment.CommentActivity"></activity>
     </application>
 
 </manifest>

@@ -68,7 +68,6 @@ public class MainPagePresenter_vp extends BasePresenter<MainPageMvpView_vp<MainP
                 .subscribe(new BaseSubscribe<JSONObject>(mContext,false) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
-                        TLog.getInstance().i(jsonObject.toString());
                         mIBaseMvpView.praise(GsonHelper.getGsonObject().fromJson(jsonObject.toString(), PostResultBean.class));
                     }
                 });

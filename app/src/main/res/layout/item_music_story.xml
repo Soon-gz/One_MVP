@@ -8,27 +8,28 @@
         android:id="@+id/text_music_story_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="@color/share_dialog_night_background"
         android:text="往事随风"/>
     <TextView
         android:id="@+id/text_music_story_singer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="@dimen/margin_size_10_dp"
         android:textColor="@color/register_bg_color"
         android:text="张国荣"/>
     <TextView
         android:id="@+id/text_music_story_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textColor="@color/share_dialog_night_background"
-        android:text="    　2011年7月13日，昔日午后的普罗旺斯地区薰衣草田间，开满一簇簇紫色的花，成千上万只蜜蜂煽动翅膀，发出如海浪一般的声响。\n 1000毫米/秒吹过的微风，1000万只蜜蜂振动的翅膀，1000次心跳时间的行走，1000米高空漂泊的白云。这是一种无法用语言形容的感觉，是自然界美丽的协奏曲。\n在我看来，薰衣草代表的不是浪漫，而是一种田园的情怀。勤劳、安逸、宁静。走进花田，坐在树荫下，闭上眼睛慢慢感受：那扑鼻的香味乘着蜜蜂振翅的声波，像海浪一般拂面而来。"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black_80"
+        android:text="2011年7月13日，昔日午后的普罗旺斯地区薰衣草田间，开满一簇簇紫色的花，成千上万只蜜蜂煽动翅膀，发出如海浪一般的声响。\n 1000毫米/秒吹过的微风，1000万只蜜蜂振动的翅膀，1000次心跳时间的行走，1000米高空漂泊的白云。这是一种无法用语言形容的感觉，是自然界美丽的协奏曲。\n在我看来，薰衣草代表的不是浪漫，而是一种田园的情怀。勤劳、安逸、宁静。走进花田，坐在树荫下，闭上眼睛慢慢感受：那扑鼻的香味乘着蜜蜂振翅的声波，像海浪一般拂面而来。"
         ></TextView>
     <TextView
         android:id="@+id/text_music_story_author"
         android:layout_width="match_parent"
+        android:textSize="@dimen/text_size_12_sp"
         android:layout_height="wrap_content"
         android:text="（责任编辑：叶耶耶子）"
         android:padding="15dp"

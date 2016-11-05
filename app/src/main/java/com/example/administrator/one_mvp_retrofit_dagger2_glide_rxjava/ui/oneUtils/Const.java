@@ -35,6 +35,7 @@ public class Const {
 
     //点赞类型
     public static final String HP_CONTENT = "hpcontent";
+    public static final String MUSIC = "music";
 
 
     //月份
@@ -58,6 +59,17 @@ public class Const {
 
     //音乐界面多样式布局
     public static final int MUSIC_HEAD_ITEM = 100;
-    public static final int MUSIC_CONTENT_ITEM = 200;
+    public static final int MUSIC_SECOND_ITEM = 200;
+    public static final int MUSIC_THRID_ITEM = 300;
+    public static final int MUSIC_CONTENT_ITEM = 400;
+
+    //热门评论
+    public static final String HOT_CONTENT = "0";
+    public static final String NOT_HOT_CONTENT = "1";
+    public static final String ITEM_ID = "ITEM_ID";
+    public static final String COMMETNT_TYPE = "COMMETNT_TYPE";
+    public static final int COMMENT_REQUEST_CODE = 1000;
+    public static final int COMMENT_RESULT_CODE = 1001;
+
 
 }

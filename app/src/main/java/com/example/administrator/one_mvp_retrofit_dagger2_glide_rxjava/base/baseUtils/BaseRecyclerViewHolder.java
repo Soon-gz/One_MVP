@@ -5,10 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 /**
@@ -42,12 +49,35 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
         return (TextView) getView(viewId);
     }
 
+    public RadioGroup getRadioGroup(int viewId){
+        return (RadioGroup) getView(viewId);
+    }
+
+    public CheckBox getCheckBox(int viewId){
+        return (CheckBox) getView(viewId);
+    }
+
+    public FrameLayout getFrameLayout(int viewId){
+        return (FrameLayout) getView(viewId);
+    }
+
     public Button getButton(int viewId) {
         return (Button) getView(viewId);
     }
 
     public ImageView getImageView(int viewId) {
         return (ImageView) getView(viewId);
+    }
+
+    public CircleImageView getCircleImageView(int viewId){
+        return (CircleImageView) getView(viewId);
+    }
+
+    public LinearLayout getLinearLayout(int viewId){
+        return (LinearLayout) getView(viewId);
+    }
+    public RelativeLayout getRelativeLayout(int viewId){
+        return (RelativeLayout) getView(viewId);
     }
 
     public ImageButton getImageButton(int viewId) {

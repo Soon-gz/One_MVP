@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp">
+        android:layout_height="460dp">
 
         <ImageView
             android:id="@+id/img_music_first_head"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/default_indi_bg" />
+            android:layout_height="@dimen/margin_size_360_dp"
+            android:scaleType="fitXY"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_size_110_dp"
+            android:layout_height="@dimen/margin_size_115_dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="5dp"
             android:background="@drawable/music_board">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_music_pro_head"
                 android:layout_width="@dimen/margin_size_43_dp"
                 android:layout_height="@dimen/margin_size_43_dp"
                 android:layout_margin="@dimen/margin_size_12_dp"
-                android:src="@drawable/head" />
+                app:civ_border_overlay="true"
+                />
 
             <TextView
                 android:id="@+id/text_music_pro_name"
@@ -33,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/img_music_pro_head"
                 android:layout_toRightOf="@+id/img_music_pro_head"
-                android:text="张国荣"
+                android:text=""
                 android:textColor="@color/coarse_blue"
                 android:textSize="14sp" />
 
@@ -45,7 +47,7 @@
                 android:layout_marginTop="@dimen/margin_size_6_dp"
                 android:layout_toRightOf="@+id/img_music_pro_head"
                 android:layout_below="@+id/text_music_pro_name"
-                android:text="美国歌手"/>
+                android:text=""/>
 
             <ImageView
                 android:id="@+id/xiami_right"
@@ -74,7 +76,7 @@
                 android:layout_toLeftOf="@+id/music_head_date_time"
                 android:layout_marginBottom="@dimen/margin_size_20_dp"
                 android:layout_marginLeft="@dimen/margin_size_12_dp"
-                android:text="当爱已成往事"
+                android:text=""
                 android:lines="1"
                 android:ellipsize="end"
                 android:textColor="@color/black"
@@ -88,133 +90,9 @@
                 android:textSize="@dimen/text_size_12_sp"
                 android:layout_marginRight="@dimen/margin_size_14_dp"
                 android:layout_marginBottom="@dimen/margin_size_6_dp"
-                android:text="Nov 03.2016"
+                android:text=""
                 />
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/text_music_story"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:text="音乐故事" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup_music"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radiobtn_music_story"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sel_music_story"
-                android:button="@null"
-                android:checked="true" />
-
-            <RadioButton
-                android:id="@+id/radiobtn_music_lyric"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sel_music_lyric"
-                android:button="@null" />
-
-            <RadioButton
-                android:id="@+id/radiobtn_music_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sel_music_about"
-                android:button="@null" />
-        </RadioGroup>
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/light_gray"></View>
-
-    <FrameLayout
-        android:id="@+id/music_frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <include layout="@layout/item_music_story"></include>
-        <include layout="@layout/item_music_lyric"></include>
-        <include layout="@layout/item_music_about"></include>
-    </FrameLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/light_gray"/>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/sel_userlaund"
-                android:button="@null" />
-            <TextView
-                android:id="@+id/text_music_like_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="453"/>
-        </LinearLayout>
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/gray"/>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/comment_image"/>
-            <TextView
-                android:id="@+id/text_music_pinglun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="207"/>
-        </LinearLayout>
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:background="@color/light_gray"/>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/share_image"/>
-            <TextView
-                android:id="@+id/text_music_share_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="262"/>
-        </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>

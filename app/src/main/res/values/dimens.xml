@@ -40,6 +40,7 @@
     <dimen name="margin_size_95_dp">95dp</dimen>
     <dimen name="margin_size_100_dp">100dp</dimen>
     <dimen name="margin_size_110_dp">110dp</dimen>
+    <dimen name="margin_size_115_dp">115dp</dimen>
     <dimen name="margin_size_120_dp">120dp</dimen>
     <dimen name="margin_size_140_dp">140dp</dimen>
     <dimen name="margin_size_160_dp">160dp</dimen>
@@ -49,6 +50,7 @@
     <dimen name="margin_size_230_dp">230dp</dimen>
     <dimen name="margin_size_280_dp">280dp</dimen>
     <dimen name="margin_size_300_dp">300dp</dimen>
+    <dimen name="margin_size_360_dp">360dp</dimen>
 
     <!-- 文字大小-->
     <dimen name="text_size_8_sp">8sp</dimen>

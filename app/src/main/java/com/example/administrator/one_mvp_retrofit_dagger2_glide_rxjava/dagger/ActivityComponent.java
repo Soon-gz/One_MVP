@@ -1,6 +1,7 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.dagger;
 
 
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.Comment.CommentActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.MainIssueActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment_vp;
@@ -33,4 +34,5 @@ public interface ActivityComponent {
     void inject(ReadingFragment_vp readingFragment_vp);
     void inject(MusicFragment musicFragment);
     void inject(MusicFragVP musicFragVP);
+    void inject(CommentActivity commentActivity);
 }

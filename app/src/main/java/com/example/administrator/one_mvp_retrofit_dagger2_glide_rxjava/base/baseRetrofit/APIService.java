@@ -7,7 +7,6 @@ import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
-import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -45,6 +44,33 @@ public interface APIService {
     Observable<JSONObject> postPraise(@Field("itemid")String itemid, @Field("type")String type,
                                       @Field("deviceid")String deviceid, @Field("version")String version,
                                       @Field("devicetype")String devicetype, @Field("platform")String platform);
+    /**
+     * 音乐点赞，采用表单样式上传post数据
+     * @param itemid
+     * @param type
+     * @param deviceid
+     * @param version
+     * @param devicetype
+     * @param platform
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("comment/praise")
+    Observable<JSONObject> postMusicPraise(@Field("itemid")String itemid, @Field("type")String type,
+                                      @Field("deviceid")String deviceid, @Field("version")String version,
+                                      @Field("devicetype")String devicetype, @Field("platform")String platform,
+                                           @Field("cmtid")String cmtid);
+
+    /**
+     * 音乐取消赞
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("comment/unpraise")
+    Observable<JSONObject> postMusicUnPraise(@Field("itemid")String itemid, @Field("type")String type,
+                                             @Field("deviceid")String deviceid, @Field("version")String version,
+                                             @Field("devicetype")String devicetype, @Field("platform")String platform,
+                                             @Field("cmtid")String cmtid);
 
     /**
      * 查看往期数据
@@ -83,4 +109,33 @@ public interface APIService {
      */
     @GET("music/detail/{musicId}")
     Observable<JSONObject> getMusicHomeData(@Path("musicId") String musicId);
+
+    /**
+     * 获取音乐评论
+     * @param contentId
+     * @return
+     */
+    @GET("comment/praiseandtime/music/{contentId}/{pageNum}")
+    Observable<JSONObject> getMusicContent(@Path("contentId") String contentId,@Path("pageNum") String pageNum);
+
+    /**
+     * 发布评论
+     * @param itemid
+     * @param type
+     * @param deviceid
+     * @param version
+     * @param devicetype
+     * @param platform
+     * @param cmtid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("comment/add")
+    Observable<JSONObject> postComment(@Field("itemid")String itemid, @Field("type")String type,
+                                       @Field("deviceid")String deviceid, @Field("version")String version,
+                                       @Field("devicetype")String devicetype, @Field("platform")String platform,
+                                       @Field("cmtid")String cmtid,@Field("jwt") String jwt,@Field("user_id")String user_id,
+                                       @Field("content")String content);
+
+
 }

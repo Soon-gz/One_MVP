@@ -45,6 +45,26 @@ public class DataManager {
     public Observable<JSONObject> postPraise(String itemid,String type){
         return apiService.postPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android");
     }
+    /**
+     * 音乐点赞
+     * @param itemid
+     * @param type
+     * @return
+     */
+    public Observable<JSONObject> postMusicPraise(String itemid,String type,String cmtid){
+        return apiService.postMusicPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid);
+    }
+    /**
+     * 音乐取消点赞
+     * @param itemid
+     * @param type
+     * @return
+     */
+    public Observable<JSONObject> postMusicUnPraise(String itemid,String type,String cmtid){
+        return apiService.postMusicUnPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid);
+    }
+
+
 
     /**
      * 查看主页往期数据
@@ -88,6 +108,26 @@ public class DataManager {
      */
     public Observable<JSONObject> getMusicDetailData(String musicId){
         return apiService.getMusicHomeData(musicId);
+    }
+
+    /**
+     * 获取音乐评论
+     * @param contentId
+     * @return
+     */
+    public Observable<JSONObject> getMusicContent(String contentId,String pageNum){
+        return apiService.getMusicContent(contentId,pageNum);
+    }
+
+    /**
+     * 提交评论
+     * @param itemid
+     * @param type
+     * @param cmtid
+     * @return
+     */
+    public Observable<JSONObject> postComment(String itemid,String type,String cmtid,String content){
+        return apiService.postComment(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid,"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzY4NjEyNDAsInVzZXJpZCI6IjY0MDcyNzMifQ.IeccuZPGtEScIxEuVXOTwcKOiZ_hqxGOmEiFmqjvG5M","6407273",content);
     }
 
 }

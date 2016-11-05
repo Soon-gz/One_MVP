@@ -64,10 +64,14 @@ public class MainActivity extends BaseActivity {
                         FragmentHelper.showOneFragment(Const.READING_PAGE_FRAGMENT);
                         break;
                     case R.id.one_music_page_button:
+                        main_title_iv.setVisibility(View.GONE);
+                        main_title_tv.setVisibility(View.VISIBLE);
                         main_title_tv.setText(getResources().getString(R.string.music_page_title));
                         FragmentHelper.showOneFragment(Const.MUSIC_PAGE_FRAGMENT);
                         break;
                     case R.id.one_movie_page_button:
+                        main_title_iv.setVisibility(View.GONE);
+                        main_title_tv.setVisibility(View.VISIBLE);
                         main_title_tv.setText(getResources().getString(R.string.movie_page_title));
                         FragmentHelper.showOneFragment(Const.MOVIE_PAGE_FRAGMENT);
                         break;

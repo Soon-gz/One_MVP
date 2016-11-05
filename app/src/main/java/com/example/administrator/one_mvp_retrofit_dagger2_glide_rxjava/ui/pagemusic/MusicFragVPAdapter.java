@@ -21,6 +21,10 @@ public abstract class MusicFragVPAdapter<T> extends BaseRecyclerAdapter<T> {
     public int getItemViewType(int position) {
         if (position == 0){
             return Const.MUSIC_HEAD_ITEM;
+        }else if (position == 1){
+            return Const.MUSIC_SECOND_ITEM;
+        }else if (position == 2){
+            return Const.MUSIC_THRID_ITEM;
         }else {
             return Const.MUSIC_CONTENT_ITEM;
         }
