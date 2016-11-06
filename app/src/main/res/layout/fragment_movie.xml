@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.MovieFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/movie_page_rv"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/movie_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </android.support.v4.view.ViewPager>
 </RelativeLayout>

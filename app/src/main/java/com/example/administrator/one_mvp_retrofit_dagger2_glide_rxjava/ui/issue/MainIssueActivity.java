@@ -1,7 +1,6 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue;
 
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,6 +12,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.DateUtil;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.DividerItemDecoration;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.AlphaAnimatorAdapter;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.SlideScaleInOutRightItemAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +81,12 @@ public class MainIssueActivity extends BaseActivity {
             }
         };
 
-        main_page_issue_rv.setItemAnimator(new DefaultItemAnimator());
+        main_page_issue_rv.setItemAnimator(new SlideScaleInOutRightItemAnimator(main_page_issue_rv));
         main_page_issue_rv.setLayoutManager(new LinearLayoutManager(this));
+        main_page_issue_rv.setHasFixedSize(true);
         main_page_issue_rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        main_page_issue_rv.setAdapter(adapter);
+        AlphaAnimatorAdapter animatorAdapter = new AlphaAnimatorAdapter(adapter, main_page_issue_rv);
+        main_page_issue_rv.setAdapter(animatorAdapter);
 
         adapter.setOnItemClickListener(new BaseRecyclerAdapter.OnItemClickListener() {
             @Override

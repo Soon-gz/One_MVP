@@ -1,0 +1,11 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_movie_framelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.MovieFragVP">
+
+    <include layout="@layout/pull_left_refresh"
+        android:visibility="gone"/>
+    <include layout="@layout/fragment_movie_home"/>
+</FrameLayout>

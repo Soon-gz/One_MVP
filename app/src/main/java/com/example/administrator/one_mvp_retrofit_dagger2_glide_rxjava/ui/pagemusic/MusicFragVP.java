@@ -22,6 +22,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.Commen
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.PostResultBean;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.AlphaAnimatorAdapter;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.SlideScaleInOutRightItemAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -218,7 +220,8 @@ public class MusicFragVP extends BaseFragment implements MusicFragVPMvpView<Musi
                 }
             }
         };
-        music_listView.setItemAnimator(new DefaultItemAnimator());
+        music_listView.setItemAnimator(new SlideScaleInOutRightItemAnimator(music_listView));
+        music_listView.setHasFixedSize(true);
         music_listView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
@@ -232,7 +235,6 @@ public class MusicFragVP extends BaseFragment implements MusicFragVPMvpView<Musi
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Const.COMMENT_REQUEST_CODE && resultCode == Const.COMMENT_RESULT_CODE){
-            TLog.getInstance().i("回调成功。");
             isCallback = true;
             pageNum = "0";
             dataBeanList.clear();
@@ -248,7 +250,8 @@ public class MusicFragVP extends BaseFragment implements MusicFragVPMvpView<Musi
     @Override
     public void showData(MusicFragVPDataBean data) {
         headDataBean = data;
-        music_listView.setAdapter(adapter);
+        AlphaAnimatorAdapter animatorAdapter = new AlphaAnimatorAdapter(adapter,music_listView);
+        music_listView.setAdapter(animatorAdapter);
     }
 
     @Override

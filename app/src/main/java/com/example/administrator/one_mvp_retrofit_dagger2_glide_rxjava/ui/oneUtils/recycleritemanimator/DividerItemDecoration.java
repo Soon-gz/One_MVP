@@ -1,4 +1,4 @@
-package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils;
+package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
