@@ -15,6 +15,8 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.DragScaleImageView;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -71,6 +73,10 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public CircleImageView getCircleImageView(int viewId){
         return (CircleImageView) getView(viewId);
+    }
+
+    public DragScaleImageView getDragScaleImageView(int viewId){
+        return (DragScaleImageView) getView(viewId);
     }
 
     public LinearLayout getLinearLayout(int viewId){

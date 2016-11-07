@@ -12,6 +12,9 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
@@ -123,7 +126,12 @@ public class MusicFragVP extends BaseFragment implements MusicFragVPMvpView<Musi
             public void bindData(final BaseRecyclerViewHolder holder, int position, final MusicFragVPContentBean.DataBean0.DataBean item) {
                 switch (getItemViewType(position)){
                     case Const.MUSIC_HEAD_ITEM:
-                        Glide.with(getActivity()).load(headDataBean.getData().getCover()).placeholder(R.drawable.default_indi_bg).thumbnail(0.1f).dontAnimate().into(holder.getImageView(R.id.img_music_first_head));
+                        Glide.with(getActivity()).load(headDataBean.getData().getCover()).placeholder(R.drawable.default_indi_bg).thumbnail(0.1f).dontAnimate().into(new SimpleTarget<GlideDrawable>() {
+                            @Override
+                            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                                holder.getDragScaleImageView(R.id.img_music_first_head).setImageView(resource);
+                            }
+                        });
                         Glide.with(getActivity()).load(headDataBean.getData().getAuthor().getWeb_url()).placeholder(R.drawable.head).thumbnail(0.1f).dontAnimate().into(holder.getCircleImageView(R.id.img_music_pro_head));
                         holder.getTextView(R.id.text_music_pro_name).setText(headDataBean.getData().getAuthor().getUser_name());
                         holder.getTextView(R.id.music_head_contry).setText(headDataBean.getData().getAuthor().getDesc());

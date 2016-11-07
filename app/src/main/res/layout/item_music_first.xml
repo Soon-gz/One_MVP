@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="460dp">
 
-        <ImageView
+        <com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.DragScaleImageView
             android:id="@+id/img_music_first_head"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_size_360_dp"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"/>
         <RelativeLayout
             android:layout_width="match_parent"
