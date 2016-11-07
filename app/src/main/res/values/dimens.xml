@@ -64,6 +64,7 @@
     <dimen name="text_size_22_sp">22sp</dimen>
     <dimen name="text_size_24_sp">24sp</dimen>
     <dimen name="text_size_30_sp">30sp</dimen>
+    <dimen name="text_size_40_sp">40sp</dimen>
     <dimen name="text_size_44_sp">44sp</dimen>
 
 </resources>

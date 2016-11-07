@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/btn_back_nor"
+    android:layout_marginTop="@dimen/margin_size_4_dp"
+    android:layout_marginBottom="@dimen/margin_size_3_dp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_size_160_dp">
+    <ImageView
+        android:id="@+id/item_movie_cover"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="@dimen/margin_size_160_dp"
+        android:background="@drawable/movie_placeholder_0"/>
+    <TextView
+        android:id="@+id/item_movie_score"
+        android:textSize="@dimen/text_size_40_sp"
+        android:textColor="@color/red"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_size_30_dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""/>
+</RelativeLayout>

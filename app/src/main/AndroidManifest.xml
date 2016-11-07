@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.issue.MainIssueActivity" />
-        <activity android:name=".ui.Comment.CommentActivity"></activity>
+        <activity android:name=".ui.Comment.CommentActivity" />
+        <activity android:name=".ui.search.SearchActivity"></activity>
     </application>
 
 </manifest>

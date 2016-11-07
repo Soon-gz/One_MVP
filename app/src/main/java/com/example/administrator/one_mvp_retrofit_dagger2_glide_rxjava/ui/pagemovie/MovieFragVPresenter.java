@@ -1,4 +1,4 @@
-package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic;
+package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie;
 
 import android.content.Context;
 
@@ -7,7 +7,6 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseRetrofit.DataManager;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseSubscribe;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.GsonHelper;
-import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageBean;
 
 import org.json.JSONObject;
 
@@ -18,35 +17,39 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by Administrator on 2016/11/3.
+ * Created by Administrator on 2016/11/7.
  */
 
-public class MusicFragPresenter extends BasePresenter<IBaseView<MainPageBean>> {
+public class MovieFragVPresenter extends BasePresenter<IBaseView<MovieFragVPBean>> {
     private DataManager dataManager;
-    private Subscription subscription;
     private Context context;
-    private IBaseView<MainPageBean>mMvpView;
+    private Subscription subscription;
+    private IBaseView<MovieFragVPBean>mMvpView;
 
     @Inject
-    public MusicFragPresenter(DataManager dataManager, Context context) {
+    public MovieFragVPresenter(DataManager dataManager, Context context) {
         this.dataManager = dataManager;
         this.context = context;
     }
 
     @Override
-    public void attachView(IBaseView<MainPageBean> mMvpView) {
+    public void attachView(IBaseView mMvpView) {
         this.mMvpView = mMvpView;
     }
 
-    /**获取音乐界面所有需要展示的数据 **/
-    public void getMusicPageData(){
-        subscription = dataManager.getMusicPageData()
+    /**
+     * 获取电影界面展示数据
+     * @param movieId
+     * @param showProgress
+     */
+    public void getMovieList(String movieId,boolean showProgress){
+        subscription = dataManager.getMovieList(movieId)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                .subscribe(new BaseSubscribe<JSONObject>(context,showProgress) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
-                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MainPageBean.class));
+                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieFragVPBean.class));
                     }
                 });
     }

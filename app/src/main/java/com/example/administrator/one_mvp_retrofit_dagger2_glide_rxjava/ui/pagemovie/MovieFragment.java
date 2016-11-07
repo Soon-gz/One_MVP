@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.BaseEventBus;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.BaseFgAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+import de.greenrobot.event.EventBus;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +44,7 @@ public class MovieFragment extends BaseFragment {
             public void onPageSelected(int position) {
                 if (position == 0){
                     movie_viewpager.setCurrentItem(1);
+                    EventBus.getDefault().post(new BaseEventBus(Const.REFRESH));
                 }
             }
 

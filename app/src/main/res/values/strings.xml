@@ -13,6 +13,11 @@
     <string name="music_content_hot">以上是热门评论</string>
     <string name="comment_complete">完成</string>
     <string name="comment_hint">在这里写下你想说的......</string>
+    <string name="search_picture">插图</string>
+    <string name="search_reading">阅读</string>
+    <string name="search_music">音乐</string>
+    <string name="search_movie">影视</string>
+    <string name="search_author">作者/音乐人</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

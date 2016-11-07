@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.BaseEventBus;
+
 import butterknife.ButterKnife;
 
 /**
@@ -58,4 +60,8 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     protected abstract int getContentViewLayoutID();
+
+    //EventBus的使用，用于组件之间的数据交互
+    public void onEventMainThread(BaseEventBus event) {
+    }
 }

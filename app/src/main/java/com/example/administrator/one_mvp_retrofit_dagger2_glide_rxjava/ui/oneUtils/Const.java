@@ -71,5 +71,8 @@ public class Const {
     public static final int COMMENT_REQUEST_CODE = 1000;
     public static final int COMMENT_RESULT_CODE = 1001;
 
+    //刷新
+    public static final String REFRESH = "REFRESH";
+
 
 }

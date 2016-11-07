@@ -6,6 +6,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.issue.
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment_vp;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPagePresenter_vp;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.MovieFragVP;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragVP;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagereading.ReadingFragment_vp;
@@ -35,4 +36,5 @@ public interface ActivityComponent {
     void inject(MusicFragment musicFragment);
     void inject(MusicFragVP musicFragVP);
     void inject(CommentActivity commentActivity);
+    void inject(MovieFragVP movieFragVP);
 }

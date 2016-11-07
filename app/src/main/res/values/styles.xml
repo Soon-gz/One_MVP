@@ -38,4 +38,14 @@
         <item name="android:layout_height">0.5dp</item>
         <item name="android:background">@color/light_gray</item>
     </style>
+
+    <style name="search_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/margin_size_40_dp</item>
+        <item name="android:textSize">@dimen/text_size_13_sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black_80</item>
+        <item name="android:button">@null</item>
+    </style>
 </resources>

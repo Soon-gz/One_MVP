@@ -130,4 +130,13 @@ public class DataManager {
         return apiService.postComment(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid,"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzY4NjEyNDAsInVzZXJpZCI6IjY0MDcyNzMifQ.IeccuZPGtEScIxEuVXOTwcKOiZ_hqxGOmEiFmqjvG5M","6407273",content);
     }
 
+    /**
+     * 获取电影页面展示数据
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> getMovieList(String movieId){
+        return apiService.getMovieList(movieId);
+    }
+
 }

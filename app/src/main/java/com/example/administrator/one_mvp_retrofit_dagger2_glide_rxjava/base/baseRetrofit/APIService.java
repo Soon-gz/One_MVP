@@ -137,5 +137,12 @@ public interface APIService {
                                        @Field("cmtid")String cmtid,@Field("jwt") String jwt,@Field("user_id")String user_id,
                                        @Field("content")String content);
 
+    /**
+     * 获取电影展示数据
+     * @param movieId
+     * @return
+     */
+    @GET("movie/list/{movieId}")
+    Observable<JSONObject> getMovieList(@Path("movieId") String movieId);
 
 }
