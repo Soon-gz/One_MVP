@@ -74,5 +74,12 @@ public class Const {
     //刷新
     public static final String REFRESH = "REFRESH";
 
+    //搜索界面的标签
+    public static final String SEARCH_PICTURE = "hp";
+    public static final String SEARCH_READING = "reading";
+    public static final String SEARCH_MUSIC = "music";
+    public static final String SEARCH_MOVIE = "movie";
+    public static final String SEARCH_AUTHOR = "author";
+
 
 }

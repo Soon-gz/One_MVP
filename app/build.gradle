@@ -44,8 +44,8 @@ dependencies {
     //retrofit 网络请求
     //dagger 2.2
     //rxAndroid
-    compile 'com.squareup.okhttp:okhttp:2.7.0'
     //圆形头像，带边框
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -59,8 +59,8 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile 'de.greenrobot:eventbus:2.4.0'
 }

@@ -145,4 +145,13 @@ public interface APIService {
     @GET("movie/list/{movieId}")
     Observable<JSONObject> getMovieList(@Path("movieId") String movieId);
 
+    /**
+     * 搜索界面
+     * @param type
+     * @param content
+     * @return
+     */
+    @GET("search/{type}/{content}")
+    Observable<JSONObject> getSearch(@Path("type") String type,@Path("content") String content);
+
 }

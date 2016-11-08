@@ -21,6 +21,9 @@
             android:layout_toLeftOf="@+id/search_go_btn"
             android:layout_width="match_parent"
             android:layout_centerVertical="true"
+            android:textSize="@dimen/text_size_12_sp"
+            android:paddingLeft="@dimen/margin_size_6_dp"
+            android:hint="@string/search_hint"
             android:background="@color/white"
             android:layout_height="@dimen/margin_size_24_dp" />
         <ImageButton
@@ -30,6 +33,10 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/search_icon_selector"/>
     </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_4_dp"
+        android:background="@drawable/divi_image_2"/>
     <FrameLayout
         android:id="@+id/search_framelayout"
         android:layout_width="match_parent"
@@ -51,12 +58,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RadioGroup
+                android:id="@+id/search_radiogroup_gp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RadioButton
                     android:id="@+id/search_picture"
                     style="@style/search_text_style"
+                    android:checked="true"
+                    android:textColor="@color/coarse_blue"
                     android:text="@string/search_picture"/>
                 <RadioButton
                     android:id="@+id/search_reading"
@@ -75,6 +85,7 @@
                     style="@style/search_text_style"
                     android:text="@string/search_author"/>
             </RadioGroup>
+            <View style="@style/line"/>
             <android.support.v4.view.ViewPager
                 android:id="@+id/search_viewpager"
                 android:layout_width="match_parent"

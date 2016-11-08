@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import retrofit.http.Path;
 import rx.Observable;
 
 /**
@@ -137,6 +138,16 @@ public class DataManager {
      */
     public Observable<JSONObject> getMovieList(String movieId){
         return apiService.getMovieList(movieId);
+    }
+
+    /**
+     * 搜索界面
+     * @param type
+     * @param content
+     * @return
+     */
+    public Observable<JSONObject> getSearch(String type,String content){
+        return apiService.getSearch(type,content);
     }
 
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/margin_size_68_dp">
+
+    <ImageView
+        android:id="@+id/item_search_movie_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_size_10_dp"
+        android:layout_marginRight="@dimen/margin_size_10_dp"
+        android:src="@drawable/search_movie"/>
+    <TextView
+        android:id="@+id/item_search_movie_title"
+        android:layout_toRightOf="@+id/item_search_movie_image"
+        android:layout_toLeftOf="@+id/item_search_movie_forward"
+        android:lines="1"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:text="我要一步一步往上爬，在最高点乘着叶片往前飞。小小的天留过的泪和汗，总有一天我有属于我的天。 from 周杰伦《蜗牛》"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/item_search_movie_forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_size_10_dp"
+        android:src="@drawable/forward"/>
+    <View style="@style/line"
+        android:layout_toRightOf="@+id/item_search_movie_image"
+        android:layout_marginBottom="@dimen/margin_size_6_dp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

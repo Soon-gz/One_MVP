@@ -18,6 +18,7 @@
     <string name="search_music">音乐</string>
     <string name="search_movie">影视</string>
     <string name="search_author">作者/音乐人</string>
+    <string name="search_hint">请输入需要搜索的内容</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

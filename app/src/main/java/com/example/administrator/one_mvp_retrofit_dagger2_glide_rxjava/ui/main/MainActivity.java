@@ -13,6 +13,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.search.SearchActivity;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -89,6 +90,7 @@ public class MainActivity extends BaseActivity {
     public void mainOnClick(View view){
         switch (view.getId()){
             case R.id.main_search_ib:
+                startActivity(new Intent(this, SearchActivity.class));
                 break;
             case R.id.main_individle_ib:
                 break;

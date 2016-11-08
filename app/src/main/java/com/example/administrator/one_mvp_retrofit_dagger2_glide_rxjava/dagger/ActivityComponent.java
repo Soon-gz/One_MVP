@@ -10,6 +10,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemo
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragVP;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagereading.ReadingFragment_vp;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.search.SearchFragment;
 
 import dagger.Subcomponent;
 
@@ -37,4 +38,5 @@ public interface ActivityComponent {
     void inject(MusicFragVP musicFragVP);
     void inject(CommentActivity commentActivity);
     void inject(MovieFragVP movieFragVP);
+    void inject(SearchFragment searchFragment);
 }

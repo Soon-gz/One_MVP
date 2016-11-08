@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/margin_size_6_dp"
+    android:layout_height="@dimen/margin_size_75_dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/margin_size_6_dp"
+        android:layout_toLeftOf="@+id/item_search_author_forward"
+        android:padding="@dimen/margin_size_2_dp"
+        android:layout_toRightOf="@+id/item_search_author_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/item_search_author_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/coarse_blue"
+            android:lines="1"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/margin_size_4_dp"
+            android:textSize="@dimen/text_size_14_sp"
+            android:text="Hello Stranger!"/>
+        <TextView
+            android:id="@+id/item_search_author_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_12_sp"
+            android:layout_marginTop="@dimen/margin_size_10_dp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="我要一步一步往上爬，在最高点乘着叶片往前飞。小小的天留过的泪和汗，总有一天我有属于我的天。 from 周杰伦《蜗牛》"/>
+    </LinearLayout>
+    <View style="@style/line"
+        android:layout_marginLeft="@dimen/margin_size_6_dp"
+        android:layout_toRightOf="@+id/item_search_author_image"
+        android:layout_alignParentBottom="true"/>
+    <ImageView
+        android:id="@+id/item_search_author_forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/forward"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_search_author_image"
+        android:layout_width="@dimen/margin_size_50_dp"
+        android:layout_height="@dimen/margin_size_50_dp"
+        app:civ_border_overlay="true"
+        android:src="@drawable/head"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
