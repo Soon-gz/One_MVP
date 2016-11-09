@@ -16,6 +16,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseRecyclerAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseRecyclerViewHolder;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.AlphaAnimatorAdapter;
@@ -114,7 +115,7 @@ public class SearchFragment extends BaseFragment implements SearchFragMvpView<Se
                         holder.getTextView(R.id.item_search_music_name).setText(((SearchMusicBean.DataBean)item).getAuthor().getUser_name());
                         break;
                     case Const.SEARCH_MOVIE:
-                        holder.getTextView(R.id.item_search_movie_title).setText(((SearchMusicBean.DataBean)item).getTitle());
+                        holder.getTextView(R.id.item_search_movie_title).setText(((SearchMovieBean.DataBean)item).getTitle());
                         break;
                     case Const.SEARCH_AUTHOR:
                         Glide.with(getActivity()).load(((SearchAuthorBean.DataBean)item).getWeb_url()).dontAnimate().thumbnail(0.1f).placeholder(R.drawable.default_indi_bg).into(holder.getImageView(R.id.item_search_author_image));
@@ -173,6 +174,7 @@ public class SearchFragment extends BaseFragment implements SearchFragMvpView<Se
         if (searchBeanList.size() == 0){
             FragmentHelper.showLayoutId(search_fragment_framelayout,1);
         }else {
+            FragmentHelper.showLayoutId(search_fragment_framelayout,0);
             adapter.notifyDataSetChanged();
         }
     }
@@ -207,6 +209,7 @@ public class SearchFragment extends BaseFragment implements SearchFragMvpView<Se
     @Override
     public void showData(SearchAuthorBean searchAuthorBean) {
         searchBeanList.clear();
+        TLog.getInstance().i("作者："+searchAuthorBean.getData().size());
         if (searchAuthorBean != null){
             searchBeanList.addAll(searchAuthorBean.getData());
         }

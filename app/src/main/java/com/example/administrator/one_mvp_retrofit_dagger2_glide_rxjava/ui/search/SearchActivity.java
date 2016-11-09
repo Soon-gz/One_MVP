@@ -13,6 +13,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ProgressDialogHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.StringUtils;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.BaseFgAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
@@ -57,6 +58,7 @@ public class SearchActivity extends BaseActivity implements ViewPager.OnPageChan
         search_viewpager.setAdapter(baseFgAdapter);
         search_radiogroup_gp.setOnCheckedChangeListener(this);
         search_viewpager.addOnPageChangeListener(this);
+        search_viewpager.setOffscreenPageLimit(5);
     }
 
     public void setChecked(int position) {
@@ -100,12 +102,9 @@ public class SearchActivity extends BaseActivity implements ViewPager.OnPageChan
 
     private void initFragments() {
         if (searchFragments.size() > 0) {
-            searchFragments.clear();
-            searchFragments.add(SearchFragment.newInstance(Const.SEARCH_PICTURE, search_edittext.getText().toString().trim()));
-            searchFragments.add(SearchFragment.newInstance(Const.SEARCH_READING, search_edittext.getText().toString().trim()));
-            searchFragments.add(SearchFragment.newInstance(Const.SEARCH_MUSIC, search_edittext.getText().toString().trim()));
-            searchFragments.add(SearchFragment.newInstance(Const.SEARCH_MOVIE, search_edittext.getText().toString().trim()));
-            searchFragments.add(SearchFragment.newInstance(Const.SEARCH_AUTHOR, search_edittext.getText().toString().trim()));
+            for (BaseFragment baseFragment:searchFragments) {
+                ((SearchFragment)baseFragment).loadNetWork(search_edittext.getText().toString().trim());
+            }
             baseFgAdapter.notifyDataSetChanged();
         } else {
             searchFragments.add(SearchFragment.newInstance(Const.SEARCH_PICTURE, search_edittext.getText().toString().trim()));
