@@ -1,8 +1,10 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.search;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -59,6 +61,16 @@ public class SearchActivity extends BaseActivity implements ViewPager.OnPageChan
         search_radiogroup_gp.setOnCheckedChangeListener(this);
         search_viewpager.addOnPageChangeListener(this);
         search_viewpager.setOffscreenPageLimit(5);
+        //打开软键盘
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+
+            public void run() {
+                InputMethodManager inputManager = (InputMethodManager) search_edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.showSoftInput(search_edittext, 0);
+            }
+
+        }, 500);
     }
 
     public void setChecked(int position) {
