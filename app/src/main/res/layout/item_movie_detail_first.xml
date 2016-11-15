@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_200_dp">
+        <ImageView
+            android:id="@+id/item_movie_detail_cover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_size_200_dp"
+            android:background="@drawable/default_indi_bg"/>
+        <TextView
+            android:id="@+id/item_movie_detail_score"
+            android:textSize="@dimen/text_size_40_sp"
+            android:textColor="@color/red"
+            android:layout_alignParentBottom="true"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_size_30_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
+    </RelativeLayout>
 
 </LinearLayout>
