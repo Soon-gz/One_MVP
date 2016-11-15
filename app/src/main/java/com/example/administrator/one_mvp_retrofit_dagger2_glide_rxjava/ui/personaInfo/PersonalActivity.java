@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 
+import butterknife.OnClick;
+
 public class PersonalActivity extends BaseActivity implements PersonalMvpView<PersonInfoBean>{
 
     @Override
@@ -30,5 +32,10 @@ public class PersonalActivity extends BaseActivity implements PersonalMvpView<Pe
     @Override
     public void showData(PersonInfoBean data) {
 
+    }
+
+    @OnClick(R.id.personal_unsign_return_ib)
+    public void personalOnClick(){
+        finish();
     }
 }

@@ -36,6 +36,7 @@
 
                 <TextView
                     android:id="@+id/main_page_VOL"
+                    android:textSize="@dimen/text_size_12_sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -43,6 +44,7 @@
                     android:id="@+id/main_page_author"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_12_sp"
                     android:layout_alignParentRight="true"
                     android:text="" />
             </RelativeLayout>
@@ -51,10 +53,13 @@
                 android:id="@+id/main_page_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:textSize="@dimen/text_size_13_sp"
+                android:textColor="@color/black_80"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:ellipsize="end"
-                android:maxLines="5"></TextView>
+                android:maxLength="500"
+                ></TextView>
 
             <RelativeLayout
                 android:layout_width="match_parent"

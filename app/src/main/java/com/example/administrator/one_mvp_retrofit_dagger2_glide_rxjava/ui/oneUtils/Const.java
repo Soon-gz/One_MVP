@@ -63,6 +63,10 @@ public class Const {
     public static final int MUSIC_THRID_ITEM = 300;
     public static final int MUSIC_CONTENT_ITEM = 400;
 
+    //电影详情界面多样式布局
+    public static final int MOVIE_HEAD_ITEM = 10;
+    public static final int Movie_CONTENT_ITEM = 20;
+
     //热门评论
     public static final String HOT_CONTENT = "0";
     public static final String NOT_HOT_CONTENT = "1";
@@ -80,6 +84,7 @@ public class Const {
     public static final String SEARCH_MUSIC = "music";
     public static final String SEARCH_MOVIE = "movie";
     public static final String SEARCH_AUTHOR = "author";
+
 
 
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.bumptech.glide.Glide;
@@ -34,7 +35,7 @@ import de.greenrobot.event.EventBus;
  * Use the {@link MovieFragVP#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBean> {
+public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBean>,BaseRecyclerAdapter.OnItemClickListener {
 
     @Inject
     MovieFragVPresenter mPresenter;
@@ -128,6 +129,7 @@ public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBe
         movie_home_recyclerview.setItemAnimator(new SlideScaleInOutRightItemAnimator(movie_home_recyclerview));
         AlphaAnimatorAdapter animatorAdapter = new AlphaAnimatorAdapter(adapter,movie_home_recyclerview);
         movie_home_recyclerview.setAdapter(animatorAdapter);
+        adapter.setOnItemClickListener(this);
         movie_home_recyclerview.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -162,5 +164,10 @@ public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBe
     public void showData(MovieFragVPBean data) {
         dataList.addAll(data.getData());
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(View itemView, int pos) {
+
     }
 }

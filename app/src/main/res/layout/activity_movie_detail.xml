@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_movie_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail.MovieDetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_43_dp">
+        <ImageButton
+            android:id="@+id/movie_detail_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sel_return_image"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textColor="@color/black_80"
+            android:layout_toRightOf="@+id/movie_detail_return"
+            android:layout_marginRight="@dimen/margin_size_43_dp"
+            android:textSize="@dimen/text_size_16_sp"
+            android:layout_centerInParent="true"
+            android:text="比利.林恩的中场战事"/>
+    </RelativeLayout>
+    <View style="@style/line"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/movie_detail_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
