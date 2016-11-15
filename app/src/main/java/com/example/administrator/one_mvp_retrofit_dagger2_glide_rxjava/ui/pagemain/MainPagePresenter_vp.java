@@ -40,6 +40,16 @@ public class MainPagePresenter_vp extends BasePresenter<MainPageMvpView_vp<MainP
         mIBaseMvpView = mMvpView;
     }
 
+    @Override
+    public void detachViews() {
+        super.detachViews();
+        if (subscription != null){
+            subscription.unsubscribe();
+            subscription = null;
+        }
+        mIBaseMvpView = null;
+    }
+
     /**
      * 根据主页详情id，获取详细信息
      * @param hpcontent_id

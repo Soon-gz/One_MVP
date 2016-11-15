@@ -7,9 +7,11 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagema
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment_vp;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPagePresenter_vp;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.MovieFragVP;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail.MovieDetailActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragVP;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemusic.MusicFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagereading.ReadingFragment_vp;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.personaInfo.PersonalActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.search.SearchFragment;
 
 import dagger.Subcomponent;
@@ -39,4 +41,6 @@ public interface ActivityComponent {
     void inject(CommentActivity commentActivity);
     void inject(MovieFragVP movieFragVP);
     void inject(SearchFragment searchFragment);
+    void inject(PersonalActivity personalActivity);
+    void inject(MovieDetailActivity movieDetailActivity);
 }

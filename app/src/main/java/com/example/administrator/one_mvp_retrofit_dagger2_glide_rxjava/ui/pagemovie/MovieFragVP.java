@@ -104,6 +104,7 @@ public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBe
     public void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
+        mPresenter.detachViews();
     }
 
     private void initDataListener() {

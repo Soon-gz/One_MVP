@@ -252,4 +252,10 @@ public class ReadingFragment_vp extends BaseFragment implements ReadingFVPMvpVie
     public void onPageScrollStateChanged(int state) {
 
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPresenter.detachViews();
+    }
 }

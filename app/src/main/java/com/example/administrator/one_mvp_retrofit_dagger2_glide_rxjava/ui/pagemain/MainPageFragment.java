@@ -93,6 +93,12 @@ public class MainPageFragment extends BaseFragment implements MainPageMvpView<Ma
 
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPresenter.detachViews();
+    }
+
     public void notifyDataChangedViewPager(){
         baseFgAdapter.notifyDataSetChanged();
         main_page_viewpager.setCurrentItem(1);

@@ -98,4 +98,10 @@ public class MusicFragment extends BaseFragment implements IBaseView<MainPageBea
         baseFgAdapter.notifyDataSetChanged();
         music_page_viewpager.setCurrentItem(1);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachViews();
+    }
 }

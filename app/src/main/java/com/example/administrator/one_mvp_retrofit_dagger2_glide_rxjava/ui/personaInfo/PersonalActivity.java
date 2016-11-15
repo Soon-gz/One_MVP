@@ -5,9 +5,14 @@ import android.os.Bundle;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseActivity;
 
+import javax.inject.Inject;
+
 import butterknife.OnClick;
 
 public class PersonalActivity extends BaseActivity implements PersonalMvpView<PersonInfoBean>{
+
+    @Inject
+    PersonalPresenter mPresenter;
 
     @Override
     protected int getContentViewLayoutID() {
@@ -16,7 +21,8 @@ public class PersonalActivity extends BaseActivity implements PersonalMvpView<Pe
 
     @Override
     protected void iniInjector() {
-
+        activityComponent().inject(this);
+        mPresenter.attachView(this);
     }
 
     @Override
@@ -37,5 +43,11 @@ public class PersonalActivity extends BaseActivity implements PersonalMvpView<Pe
     @OnClick(R.id.personal_unsign_return_ib)
     public void personalOnClick(){
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachViews();
     }
 }

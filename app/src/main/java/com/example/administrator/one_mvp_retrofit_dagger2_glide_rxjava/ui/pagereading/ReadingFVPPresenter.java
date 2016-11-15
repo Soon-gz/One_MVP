@@ -40,6 +40,16 @@ public class ReadingFVPPresenter extends BasePresenter<ReadingFVPMvpView> {
     }
 
     @Override
+    public void detachViews() {
+        super.detachViews();
+        if (subscription != null){
+            subscription.unsubscribe();
+            subscription = null;
+        }
+        mMvpView = null;
+    }
+
+    @Override
     public void attachView(ReadingFVPMvpView mMvpView) {
         this.mMvpView = mMvpView;
     }

@@ -139,4 +139,10 @@ public class MainPageFragment_vp extends BaseFragment implements MainPageMvpView
             main_page_land_number.setText(Integer.parseInt(main_page_land_number.getText().toString())-1+"");
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPresenter.detachViews();
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.personaInfo;
+package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail;
 
 import android.content.Context;
 
@@ -10,19 +10,24 @@ import javax.inject.Inject;
 import rx.Subscription;
 
 /**
- * Created by Administrator on 2016/11/14.
+ * Created by Administrator on 2016/11/15.
  */
 
-public class PersonalPresenter extends BasePresenter<PersonalMvpView<PersonInfoBean>> {
+public class MovieDetailPresenter extends BasePresenter<MovieDetailMvpView<MovieDetailDataBean>> {
     private DataManager dataManager;
     private Context context;
+    private MovieDetailMvpView<MovieDetailDataBean> mMvpView;
     private Subscription subscription;
-    private PersonalMvpView<PersonInfoBean> mMvpView;
 
     @Inject
-    public PersonalPresenter(DataManager dataManager, Context context) {
+    public MovieDetailPresenter(DataManager dataManager, Context context) {
         this.dataManager = dataManager;
         this.context = context;
+    }
+
+    @Override
+    public void attachView(MovieDetailMvpView<MovieDetailDataBean> mMvpView) {
+        this.mMvpView = mMvpView;
     }
 
     @Override
@@ -33,10 +38,5 @@ public class PersonalPresenter extends BasePresenter<PersonalMvpView<PersonInfoB
             subscription = null;
         }
         mMvpView = null;
-    }
-
-    @Override
-    public void attachView(PersonalMvpView<PersonInfoBean> mMvpView) {
-        this.mMvpView = mMvpView;
     }
 }

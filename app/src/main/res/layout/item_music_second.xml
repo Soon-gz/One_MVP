@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:text="音乐故事" />
+            android:text="@string/music_story" />
 
         <RadioGroup
             android:id="@+id/radioGroup_music"

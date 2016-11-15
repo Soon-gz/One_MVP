@@ -38,6 +38,16 @@ public class MainPagePresenter extends BasePresenter<MainPageMvpView<MainPageBea
         this.mMvpView = mMvpView;
     }
 
+    @Override
+    public void detachViews() {
+        super.detachViews();
+        if (mSubscription != null){
+            mSubscription.unsubscribe();
+            mSubscription = null;
+        }
+        mMvpView = null;
+    }
+
     /**
      * 获取主页展示数据
      */
