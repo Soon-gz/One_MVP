@@ -43,6 +43,7 @@ public class MovieDetailUI {
 
     public static void initHorizontalScollView(HorizontalScrollView horizontalScrollView, MovieDetailDataBean movieDetailDataBean, Context context){
         if (movieDetailDataBean.getData().getPhoto().size() > 0){
+            horizontalScrollView.removeAllViews();
             LinearLayout linearLayout = new LinearLayout(context);
             for (int index = 0; index < movieDetailDataBean.getData().getPhoto().size(); index++) {
                 ImageView imageView = new ImageView(context);

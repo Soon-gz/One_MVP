@@ -194,7 +194,7 @@ public class MovieDetailContentBean {
                 this.user = user;
             }
 
-            public Object getTouser() {
+            public UserBean getTouser() {
                 return touser;
             }
 

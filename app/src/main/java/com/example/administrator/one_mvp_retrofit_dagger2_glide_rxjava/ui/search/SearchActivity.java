@@ -152,6 +152,11 @@ public class SearchActivity extends BaseActivity implements ViewPager.OnPageChan
     }
 
     @Override
+    public int getStatusColor() {
+        return R.color.black;
+    }
+
+    @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
             case R.id.search_picture:

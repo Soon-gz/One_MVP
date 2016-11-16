@@ -170,4 +170,13 @@ public interface APIService {
     @GET("movie/{movieId}/story/1/0")
     Observable<JSONObject> getMovieStory(@Path("movieId") String movieId);
 
+    /**
+     * 获取电影详情评论
+     * @param movieId
+     * @param commentId
+     * @return
+     */
+    @GET("comment/praiseandtime/movie/{movieId}/{commentId}")
+    Observable<JSONObject> getMovieComment(@Path("movieId") String movieId,@Path("commentId")String commentId);
+
 }

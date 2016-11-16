@@ -56,6 +56,22 @@ public class MovieDetailPresenter extends BasePresenter<MovieDetailMvpView<Movie
                 });
     }
 
+    /**
+     * 获取电影详情评论
+     * @param movieId
+     * @param commentId
+     */
+    public void getMovieComment(String movieId,String commentId){
+        subscription = dataManager.getMovieComment(movieId,commentId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieDetailContentBean.class));
+                    }
+                });
+    }
 
 
     @Override

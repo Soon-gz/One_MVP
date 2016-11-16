@@ -168,4 +168,15 @@ public class DataManager {
         return apiService.getMovieStory(movieId);
     }
 
+    /**
+     * 获取电影故事评论
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> getMovieComment(String movieId,String commentId){
+        return apiService.getMovieComment(movieId,commentId);
+    }
+
+
+
 }
