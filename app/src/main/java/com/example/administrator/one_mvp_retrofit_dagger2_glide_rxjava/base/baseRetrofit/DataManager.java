@@ -150,4 +150,22 @@ public class DataManager {
         return apiService.getSearch(type,content);
     }
 
+    /**
+     * 获取电影详情
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> getMovieDetail(String movieId){
+        return apiService.getMovieDetail(movieId);
+    }
+
+    /**
+     * 获取电影故事
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> getMovieStory(String movieId){
+        return apiService.getMovieStory(movieId);
+    }
+
 }

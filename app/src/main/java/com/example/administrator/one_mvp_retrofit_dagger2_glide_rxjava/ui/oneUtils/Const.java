@@ -66,6 +66,7 @@ public class Const {
     //电影详情界面多样式布局
     public static final int MOVIE_HEAD_ITEM = 10;
     public static final int Movie_CONTENT_ITEM = 20;
+    public static final String MOVIE_ID = "MOVIE_ID";
 
     //热门评论
     public static final String HOT_CONTENT = "0";

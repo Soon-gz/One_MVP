@@ -1,6 +1,7 @@
 package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUti
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.AlphaAnimatorAdapter;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.recycleritemanimator.SlideScaleInOutRightItemAnimator;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail.MovieDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -169,6 +171,6 @@ public class MovieFragVP extends BaseFragment implements IBaseView<MovieFragVPBe
 
     @Override
     public void onItemClick(View itemView, int pos) {
-
+        startActivity(new Intent(getActivity(), MovieDetailActivity.class).putExtra(Const.MOVIE_ID,dataList.get(pos).getId()+""));
     }
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,6 +50,10 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public TextView getTextView(int viewId) {
         return (TextView) getView(viewId);
+    }
+
+    public HorizontalScrollView getHorizontalScrollView(int viewId){
+        return (HorizontalScrollView) getView(viewId);
     }
 
     public RadioGroup getRadioGroup(int viewId){

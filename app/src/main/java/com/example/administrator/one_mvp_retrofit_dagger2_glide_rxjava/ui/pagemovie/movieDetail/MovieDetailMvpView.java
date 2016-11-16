@@ -7,6 +7,6 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
  */
 
 public interface MovieDetailMvpView<MovieDetailDataBean> extends IBaseView<MovieDetailDataBean>{
-    void showData(MovieDatailStoryBean movieDatailStoryBean);
+    void showData(MovieDetailStoryBean movieDetailStoryBean);
     void showData(MovieDetailContentBean movieDetailContentBean);
 }
