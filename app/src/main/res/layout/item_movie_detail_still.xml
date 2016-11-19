@@ -5,6 +5,7 @@
     android:layout_height="@dimen/margin_size_140_dp">
     <HorizontalScrollView
         android:id="@+id/item_movie_detail_photo"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </HorizontalScrollView>
