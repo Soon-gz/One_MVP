@@ -62,7 +62,7 @@ public class DataManager {
      * @return
      */
     public Observable<JSONObject> postMusicUnPraise(String itemid,String type,String cmtid){
-        return apiService.postMusicUnPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid);
+        return apiService.postMusicUnPraise(itemid,type,"ffffffff-b821-e83f-45c3-423b5c7ea996","3.5.0","android","android",cmtid,"6407273");
     }
 
 
@@ -177,6 +177,34 @@ public class DataManager {
         return apiService.getMovieComment(movieId,commentId);
     }
 
+    /**
+     * 电影故事点赞
+     * @param storyid
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> postMovieStoryPraise(String storyid,String movieId){
+        return apiService.postMovieStoryPraise(storyid,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzkyMDE0NDcsInVzZXJpZCI6IjY0MDcyNzMifQ.nuhymkpKMR2q71Je7H2BgCwXOmaVF0Qy_Vh5peAYHL4",movieId,"3.5.0","android");
+    }
+
+    /**
+     * 电影故事取消赞
+     * @param storyid
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> postMovieStoryUnPraise(String storyid,String movieId){
+        return apiService.postMovieStoryUnPraise(storyid,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzkyMDE0NDcsInVzZXJpZCI6IjY0MDcyNzMifQ.nuhymkpKMR2q71Je7H2BgCwXOmaVF0Qy_Vh5peAYHL4",movieId,"3.5.0","android");
+    }
+
+    /**
+     * 获取电影详情当前用户的评分
+     * @param movieId
+     * @return
+     */
+    public Observable<JSONObject> getMygrade(String movieId){
+        return apiService.getMygrade(movieId,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzY4NjEyNDAsInVzZXJpZCI6IjY0MDcyNzMifQ.IeccuZPGtEScIxEuVXOTwcKOiZ_hqxGOmEiFmqjvG5M");
+    }
 
 
 }

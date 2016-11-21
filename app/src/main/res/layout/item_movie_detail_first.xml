@@ -11,6 +11,7 @@
             android:id="@+id/item_movie_detail_cover"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_size_200_dp"
+            android:scaleType="fitXY"
             android:background="@drawable/default_indi_bg"/>
         <TextView
             android:id="@+id/item_movie_detail_score"

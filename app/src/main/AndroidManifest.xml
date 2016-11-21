@@ -12,20 +12,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity" />
-        <activity android:name=".ui.welcome.WelComeActivity" />
-        <activity android:name=".ui.guide.GuideActivity">
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.welcome.WelComeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.guide.GuideActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.issue.MainIssueActivity" />
-        <activity android:name=".ui.Comment.CommentActivity" />
-        <activity android:name=".ui.search.SearchActivity" />
-        <activity android:name=".ui.personaInfo.PersonalActivity" />
-        <activity android:name=".ui.pagemovie.movieDetail.MovieDetailActivity"></activity>
+        <activity
+            android:name=".ui.issue.MainIssueActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.Comment.CommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.personaInfo.PersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.pagemovie.movieDetail.MovieDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.pagemovie.movieDetail.MovieDetailVideoActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

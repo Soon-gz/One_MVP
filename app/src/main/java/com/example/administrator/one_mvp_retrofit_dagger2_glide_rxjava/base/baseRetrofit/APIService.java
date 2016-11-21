@@ -7,6 +7,7 @@ import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
+import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -70,7 +71,7 @@ public interface APIService {
     Observable<JSONObject> postMusicUnPraise(@Field("itemid")String itemid, @Field("type")String type,
                                              @Field("deviceid")String deviceid, @Field("version")String version,
                                              @Field("devicetype")String devicetype, @Field("platform")String platform,
-                                             @Field("cmtid")String cmtid);
+                                             @Field("cmtid")String cmtid,@Field("user_id")String user_id);
 
     /**
      * 查看往期数据
@@ -179,4 +180,42 @@ public interface APIService {
     @GET("comment/praiseandtime/movie/{movieId}/{commentId}")
     Observable<JSONObject> getMovieComment(@Path("movieId") String movieId,@Path("commentId")String commentId);
 
+    /**
+     * 电影故事点赞
+     * @param storyid
+     * @param user_id
+     * @param jwt
+     * @param movieid
+     * @param version
+     * @param platform
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("movie/praisestory")
+    Observable<JSONObject> postMovieStoryPraise(@Field("storyid")String storyid,@Field("user_id")String user_id,@Field("jwt")String jwt,
+                                                @Field("movieid")String movieid,@Field("version")String version,@Field("platform")String platform);
+    /**
+     * 电影故事取消点赞
+     * @param storyid
+     * @param user_id
+     * @param jwt
+     * @param movieid
+     * @param version
+     * @param platform
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("movie/unpraisestory")
+    Observable<JSONObject> postMovieStoryUnPraise(@Field("storyid")String storyid,@Field("user_id")String user_id,@Field("jwt")String jwt,
+                                                @Field("movieid")String movieid,@Field("version")String version,@Field("platform")String platform);
+
+    /**
+     * 获取电影详情当前用户的评分
+     * @param movieId
+     * @param user_id
+     * @param jwt
+     * @return
+     */
+    @GET("movie/mygrade/{movieId}")
+    Observable<JSONObject> getMygrade(@Path("movieId")String movieId, @Query("user_id")String user_id,@Query("jwt")String jwt);
 }

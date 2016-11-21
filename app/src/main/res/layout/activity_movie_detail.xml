@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:id="@+id/layoutAll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail.MovieDetailActivity">
 
-    <RelativeLayout
+    <WebView
+        android:id="@+id/movie_detail_ticket"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_size_43_dp">
-        <ImageButton
-            android:id="@+id/movie_detail_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/sel_return_image"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:lines="1"
-            android:ellipsize="end"
-            android:textColor="@color/black_80"
-            android:layout_toRightOf="@+id/movie_detail_return"
-            android:layout_marginRight="@dimen/margin_size_43_dp"
-            android:textSize="@dimen/text_size_16_sp"
-            android:layout_centerInParent="true"
-            android:text="比利.林恩的中场战事"/>
-    </RelativeLayout>
-    <View style="@style/line"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/movie_detail_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"></WebView>
 
-    </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_size_43_dp">
+
+            <ImageButton
+                android:id="@+id/movie_detail_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sel_return_image" />
+
+            <TextView
+                android:id="@+id/movie_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/margin_size_43_dp"
+                android:layout_toRightOf="@+id/movie_detail_return"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lines="1"
+                android:text=""
+                android:textColor="@color/black_80"
+                android:textSize="@dimen/text_size_16_sp" />
+        </RelativeLayout>
+
+        <View style="@style/line" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/movie_detail_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</FrameLayout>

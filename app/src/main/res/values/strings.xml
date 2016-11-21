@@ -25,6 +25,7 @@
     <string name="setting_night_mode">夜间模式</string>
     <string name="setting_other">其他设置</string>
     <string name="movie_grade">评分</string>
+    <string name="your_movie_grade">您的评分</string>
     <string name="movie_story">电影故事</string>
     <string name="movie_table">一个.电影表</string>
 

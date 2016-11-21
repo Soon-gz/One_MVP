@@ -36,6 +36,7 @@ public class Const {
     //点赞类型
     public static final String HP_CONTENT = "hpcontent";
     public static final String MUSIC = "music";
+    public static final String MOVIE = "movie";
 
 
     //月份
@@ -67,6 +68,9 @@ public class Const {
     public static final int MOVIE_HEAD_ITEM = 10;
     public static final int Movie_CONTENT_ITEM = 20;
     public static final String MOVIE_ID = "MOVIE_ID";
+    public static final String MOVIE_VIDEO_URL = "MOVIE_VIDEO_URL";
+    public static final String MOVIE_VIDEO_TITLE = "MOVIE_VIDEO_TITLE";
+    public static final String MOVIE_VIDEO_INNER_COVER = "MOVIE_VIDEO_INNER_COVER";
 
     //热门评论
     public static final String HOT_CONTENT = "0";

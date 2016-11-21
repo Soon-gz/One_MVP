@@ -7,6 +7,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.BaseSubscribe;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.TLog;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.GsonHelper;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.PostResultBean;
 
 import org.json.JSONObject;
 
@@ -48,10 +49,19 @@ public class MovieDetailPresenter extends BasePresenter<MovieDetailMvpView<Movie
                         mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieDetailDataBean.class));
                         return dataManager.getMovieStory(movieId).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
                     }
-                }).subscribe(new BaseSubscribe<JSONObject>(context) {
+                })
+                .flatMap(new Func1<JSONObject, Observable<JSONObject>>() {
+                    @Override
+                    public Observable<JSONObject> call(JSONObject jsonObject) {
+                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieDetailStoryBean.class));
+                        return dataManager.getMygrade(movieId).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io());
+                    }
+                })
+                .subscribe(new BaseSubscribe<JSONObject>(context) {
                     @Override
                     public void onNextJSONObject(JSONObject jsonObject) {
-                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieDetailStoryBean.class));
+                        TLog.getInstance().i(jsonObject.toString());
+                        mMvpView.showData(GsonHelper.getGsonObject().fromJson(jsonObject.toString(),MovieDetailScoreBean.class));
                     }
                 });
     }
@@ -73,6 +83,72 @@ public class MovieDetailPresenter extends BasePresenter<MovieDetailMvpView<Movie
                 });
     }
 
+    /**
+     * 电影评论点赞
+     * @param movieId
+     * @param type
+     */
+    public void postMusicLike(String movieId,String type,String cmtId){
+        subscription = dataManager.postMusicPraise(movieId,type,cmtId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.praise(GsonHelper.getGsonObject().fromJson(jsonObject.toString(), PostResultBean.class));
+                    }
+                });
+    }
+
+    /**
+     * 电影评论取消赞
+     * @param movieId
+     * @param type
+     */
+    public void postMusicUnPraise(String movieId,String type,String cmtId){
+        subscription = dataManager.postMusicUnPraise(movieId,type,cmtId)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.praise(GsonHelper.getGsonObject().fromJson(jsonObject.toString(), PostResultBean.class));
+                    }
+                });
+    }
+
+    /**
+     * 电影故事点赞
+     * @param storyid
+     * @param movieId
+     */
+    public void postMovieStoryPraise(String storyid,String movieId){
+        subscription = dataManager.postMovieStoryPraise(storyid,movieId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.praise(GsonHelper.getGsonObject().fromJson(jsonObject.toString(), PostResultBean.class));
+                    }
+                });
+    }
+    /**
+     * 电影故事取消点赞
+     * @param storyid
+     * @param movieId
+     */
+    public void postMovieStoryUnPraise(String storyid,String movieId){
+        subscription = dataManager.postMovieStoryUnPraise(storyid,movieId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseSubscribe<JSONObject>(context,false) {
+                    @Override
+                    public void onNextJSONObject(JSONObject jsonObject) {
+                        mMvpView.praise(GsonHelper.getGsonObject().fromJson(jsonObject.toString(), PostResultBean.class));
+                    }
+                });
+    }
 
     @Override
     public void attachView(MovieDetailMvpView<MovieDetailDataBean> mMvpView) {
