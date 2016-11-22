@@ -9,8 +9,8 @@
         android:id="@+id/item_movie_detail_content_hot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginBottom="@dimen/margin_size_4_dp">
+        android:visibility="visible"
+        android:layout_marginBottom="@dimen/margin_size_8_dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

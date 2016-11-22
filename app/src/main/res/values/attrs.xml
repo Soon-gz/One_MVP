@@ -5,4 +5,13 @@
         <attr name="scale_image" format="reference|color" />
     </declare-styleable>
 
+    <declare-styleable name="CustomColorRingView">
+        <attr name="bgColor" format="color"/>
+        <attr name="fgColorEnd" format="color"/>
+        <attr name="fgColorStart" format="color"/>
+        <attr name="percent" format="float"/>
+        <attr name="startAngle" format="float"/>
+        <attr name="strokeWidth" format="dimension"/>
+    </declare-styleable>
+
 </resources>

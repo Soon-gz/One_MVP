@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
@@ -15,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -27,6 +29,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUti
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Administrator on 2016/11/16.
@@ -230,26 +234,57 @@ public class MovieDetailUI {
         });
     }
 
-    public static void initScoreButton(ImageButton imageButton, MovieDetailActivity movieDetailActivity,MovieDetailScoreBean movieDetailScoreBean,TextView textView) {
-        if (null != movieDetailScoreBean.getData()){
-            imageButton.setBackgroundResource(R.drawable.sel_plz_grade);
+    public static void initScoreButton(CircleImageView imageButton, RelativeLayout relativeLayout, final MovieDetailActivity movieDetailActivity, MovieDetailScoreBean movieDetailScoreBean, TextView textView, TextView item_movie_detail_grade_number) {
+        if (null == movieDetailScoreBean.getData().getScore()){
+            item_movie_detail_grade_number.setText("");
+            imageButton.setImageResource(0);
             textView.setText(R.string.movie_grade);
-            imageButton.setOnClickListener(new View.OnClickListener() {
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ToastUtils.showToast("自己评论分数去");
+                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class));
                 }
             });
         }else {
-            imageButton.setBackgroundResource(R.drawable.shape_circle_score);
+            item_movie_detail_grade_number.setText(movieDetailScoreBean.getData().getScore());
             textView.setText(R.string.your_movie_grade);
-            imageButton.setOnClickListener(new View.OnClickListener() {
+            imageButton.setImageResource(getColorByScore(Integer.parseInt(movieDetailScoreBean.getData().getScore())));
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     ToastUtils.showToast("已经评论了~");
                 }
             });
         }
+    }
 
+    private static int getColorByScore(int i) {
+        int color = 0;
+        if (i < 0) {
+            color = R.color.negative_score;
+        }else if (i == 0){
+            color = R.color.zero_score;
+        }else if (i < 10){
+            color = R.color.ten_score;
+        }else if (i < 20){
+            color = R.color.twenty_score;
+        }else if (i < 30){
+            color = R.color.thirty_score;
+        }else if (i < 40){
+            color = R.color.fourty_score;
+        }else if (i < 50){
+            color = R.color.fifty_score;
+        }else if (i < 60){
+            color = R.color.sixty_score;
+        }else if (i < 70){
+            color = R.color.seventy_score;
+        }else if (i < 80){
+            color = R.color.eighty_score;
+        }else if (i < 90){
+            color = R.color.ninety_score;
+        }else if (i <= 100){
+            color = R.color.full_score;
+        }
+        return color;
     }
 }

@@ -87,7 +87,7 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
                         MovieDetailUI.initImageBtnOnClick(holder.getImageButton(R.id.item_movie_detail_ticket), webView, movieDetailDataBean.getData().getId());
                         MovieDetailUI.initImageOnCLick(holder.getImageView(R.id.item_movie_detail_cover), MovieDetailActivity.this, movieDetailDataBean.getData().getVideo(), movieDetailDataBean.getData().getTitle(), movieDetailDataBean.getData().getDetailcover());
                         MovieDetailUI.initRadioGroup(holder.getRadioGroup(R.id.item_movie_detail_radiogroup), holder.getFrameLayout(R.id.item_movie_detail_frameLayout));
-                        MovieDetailUI.initScoreButton(holder.getImageButton(R.id.item_movie_detail_grade), MovieDetailActivity.this,movieDetailScoreBean,holder.getTextView(R.id.item_movie_detail_grade_text));
+                        MovieDetailUI.initScoreButton(holder.getCircleImageView(R.id.item_movie_detail_grade),holder.getRelativeLayout(R.id.item_movie_detail_grade_rl), MovieDetailActivity.this,movieDetailScoreBean,holder.getTextView(R.id.item_movie_detail_grade_text),holder.getTextView(R.id.item_movie_detail_grade_number));
                         //加载图片
                         Glide.with(MovieDetailActivity.this).load(movieDetailDataBean.getData().getDetailcover()).placeholder(R.drawable.default_indi_bg).dontAnimate().thumbnail(0.1f).into(holder.getImageView(R.id.item_movie_detail_cover));
                         Glide.with(MovieDetailActivity.this).load(movieDetailStoryBean.getData().getData().get(0).getUser().getWeb_url()).placeholder(R.drawable.head).dontAnimate().thumbnail(0.1f).into(holder.getCircleImageView(R.id.item_movie_detail_story_headview));
@@ -158,27 +158,24 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
     @Override
     public void showData(MovieDetailStoryBean movieDetailStoryBean) {
         this.movieDetailStoryBean = movieDetailStoryBean;
-        if (movieDetailDataBean != null) {
-            movie_detail_recyclerview.setAdapter(animatorAdapter);
-            //发起网络请求，获取评论
-            mPresenter.getMovieComment(getIntent().getStringExtra(Const.MOVIE_ID), commentId);
-        }
     }
 
     @Override
     public void showData(MovieDetailContentBean movieDetailContentBean) {
         dataList.addAll(movieDetailContentBean.getData().getData());
-    }
-
-    @Override
-    public void showData(MovieDetailScoreBean movieDetailScoreBean) {
-        TLog.getInstance().i("分数："+movieDetailScoreBean.getData().getScore());
-        this.movieDetailScoreBean = movieDetailScoreBean;
         if (isCallback) {
             isCallback = false;
             movie_detail_recyclerview.scrollToPosition(7);
         }
         animatorAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showData(MovieDetailScoreBean movieDetailScoreBean) {
+        this.movieDetailScoreBean = movieDetailScoreBean;
+        movie_detail_recyclerview.setAdapter(animatorAdapter);
+        //发起网络请求，获取评论
+        mPresenter.getMovieComment(getIntent().getStringExtra(Const.MOVIE_ID), commentId);
     }
 
     @Override

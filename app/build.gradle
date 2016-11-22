@@ -38,31 +38,24 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //Glide图片加载
-    //注解模块
-    //Gson解析
-    //retrofit 网络请求
-    //dagger 2.2
-    //rxAndroid
-    //圆形头像，带边框
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'    //Glide图片加载
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.google.code.gson:gson:2.6.2'    //Gson解析
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'    //Glide图片加载
     compile 'com.squareup.retrofit2:converter-gson:2.+'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
-    compile 'com.google.dagger:dagger:2.2'
-    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.google.dagger:dagger:2.2'    //dagger 2.2
+    compile 'io.reactivex:rxandroid:1.1.0'    //rxAndroid
     compile 'com.android.support:support-v4:24.2.0'
     compile 'com.android.support:recyclerview-v7:24.2.0'
-    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'de.hdodenhof:circleimageview:2.0.0'    //圆形头像，带边框
     compile 'de.greenrobot:eventbus:2.4.0'
     testCompile 'junit:junit:4.12'
-    apt 'com.google.dagger:dagger-compiler:2.2'
+    apt 'com.google.dagger:dagger-compiler:2.2'    //注解模块
     provided 'org.glassfish:javax.annotation:10.0-b28'
-    //videoview播放控件
-    compile 'fm.jiecao:jiecaovideoplayer:4.8.3'
+    compile 'fm.jiecao:jiecaovideoplayer:4.8.3'    //videoview播放控件
+    compile 'com.fjwangjia.android:instrumentpanel:1.0.8'//评分控件
 }

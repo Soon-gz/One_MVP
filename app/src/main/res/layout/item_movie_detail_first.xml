@@ -50,13 +50,29 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/margin_size_10_dp"
             android:text="@string/movie_grade"/>
-        <ImageButton
-            android:id="@+id/item_movie_detail_grade"
+        <RelativeLayout
+            android:id="@+id/item_movie_detail_grade_rl"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_size_4_dp"
+            android:layout_toLeftOf="@+id/item_movie_detail_grade_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/item_movie_detail_grade_text"
-            android:background="@drawable/sel_plz_grade" />
+            android:background="@drawable/sel_plz_grade">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_movie_detail_grade"
+                android:layout_width="@dimen/margin_size_24_dp"
+                android:layout_height="@dimen/margin_size_24_dp"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:id="@+id/item_movie_detail_grade_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_13_sp"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+
     </RelativeLayout>
     <View style="@style/line"/>
     <TextView
