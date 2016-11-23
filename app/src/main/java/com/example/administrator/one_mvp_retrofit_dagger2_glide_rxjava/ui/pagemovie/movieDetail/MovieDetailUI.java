@@ -234,7 +234,7 @@ public class MovieDetailUI {
         });
     }
 
-    public static void initScoreButton(CircleImageView imageButton, RelativeLayout relativeLayout, final MovieDetailActivity movieDetailActivity, MovieDetailScoreBean movieDetailScoreBean, TextView textView, TextView item_movie_detail_grade_number) {
+    public static void initScoreButton(CircleImageView imageButton, RelativeLayout relativeLayout, final MovieDetailActivity movieDetailActivity, final MovieDetailScoreBean movieDetailScoreBean, TextView textView, TextView item_movie_detail_grade_number) {
         if (null == movieDetailScoreBean.getData().getScore()){
             item_movie_detail_grade_number.setText("");
             imageButton.setImageResource(0);
@@ -242,7 +242,7 @@ public class MovieDetailUI {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class));
+                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class).putExtra(Const.MOVIE_SCORE_TYPE,Const.NO_SCORE));
                 }
             });
         }else {
@@ -252,7 +252,7 @@ public class MovieDetailUI {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ToastUtils.showToast("已经评论了~");
+                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class).putExtra(Const.MOVIE_SCORE_TYPE,movieDetailScoreBean.getData().getScore()));
                 }
             });
         }

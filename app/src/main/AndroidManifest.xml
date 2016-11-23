@@ -46,7 +46,7 @@
             android:name=".ui.pagemovie.movieDetail.MovieDetailVideoActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".ui.pagemovie.movieDetail.MovieDetailScoreActivity"
-            android:theme="@style/Base.Theme.AppCompat.Light.Dialog"
+            android:theme="@style/AlertNoActionBar"
             android:screenOrientation="portrait"/>
     </application>
 

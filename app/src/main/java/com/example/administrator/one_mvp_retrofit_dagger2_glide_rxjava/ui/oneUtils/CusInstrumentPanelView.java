@@ -33,6 +33,7 @@ public class CusInstrumentPanelView extends View {
     float mTextSize = 24;
     List<Block> mBlockList = new ArrayList<>();
     CurrentScore currentScore;
+    boolean isZuni = false;
 
 
     public CusInstrumentPanelView(Context context) {
@@ -96,6 +97,7 @@ public class CusInstrumentPanelView extends View {
 
     public void pointerTo(float rate){
         if(rate >=0){
+            isZuni = true;
             pointer.dampingTo(doActionHandler,rate,0);
         }
     }
@@ -132,7 +134,7 @@ public class CusInstrumentPanelView extends View {
 
         List<Text> texts = new ArrayList<>();
         texts.add(new Text(mTextSize,rateToString(pointer.currentRate),mTextColor));
-        texts.add(new Text(mTextSize,"0分",mTextColor));
+        texts.add(new Text(mTextSize,"0%",mTextColor));
         for (Block block : mBlockList){
             texts.add(new Text(mTextSize,block.toString(),mTextColor));
         }
@@ -182,11 +184,12 @@ public class CusInstrumentPanelView extends View {
             float width  = text.getWidth();
             if(i==0){
                 //指针底部的数字
-                text.layout(new Rect(
-                        (int)(circlePoint.x-width/2),
-                        (int)(circlePoint.y+space),
-                        (int)(circlePoint.x+width/2),
-                        (int)(circlePoint.y+space+height+pointer.mRadius)));
+//                text.layout(new Rect(
+//                        (int)(circlePoint.x-width/2),
+//                        (int)(circlePoint.y+space),
+//                        (int)(circlePoint.x+width/2),
+//                        (int)(circlePoint.y+space+height+pointer.mRadius)));
+                text.layout(new Rect());
             }else if(i == 1){
                 float radius = fLongRadius + space;
                 Point point = Utils.getCircleSide(circlePoint,radius,0f);
@@ -270,6 +273,9 @@ public class CusInstrumentPanelView extends View {
 
             case MotionEvent.ACTION_UP: {
                 if (mIsDragPointer){
+                    if (isZuni){
+                        pointer.dampingBack(doActionHandler);
+                    }
                     mIsDragPointer = false;
                 }
             } break;

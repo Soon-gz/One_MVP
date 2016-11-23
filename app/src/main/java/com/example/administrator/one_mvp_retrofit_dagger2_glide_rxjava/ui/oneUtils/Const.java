@@ -71,6 +71,8 @@ public class Const {
     public static final String MOVIE_VIDEO_URL = "MOVIE_VIDEO_URL";
     public static final String MOVIE_VIDEO_TITLE = "MOVIE_VIDEO_TITLE";
     public static final String MOVIE_VIDEO_INNER_COVER = "MOVIE_VIDEO_INNER_COVER";
+    public static final String MOVIE_SCORE_TYPE = "MOVIE_SCORE_TYPE";
+    public static final String NO_SCORE = "NO_SCORE";
 
     //热门评论
     public static final String HOT_CONTENT = "0";
