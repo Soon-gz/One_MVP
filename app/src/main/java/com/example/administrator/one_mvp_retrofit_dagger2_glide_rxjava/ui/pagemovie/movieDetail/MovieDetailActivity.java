@@ -87,7 +87,7 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
                         MovieDetailUI.initImageBtnOnClick(holder.getImageButton(R.id.item_movie_detail_ticket), webView, movieDetailDataBean.getData().getId());
                         MovieDetailUI.initImageOnCLick(holder.getImageView(R.id.item_movie_detail_cover), MovieDetailActivity.this, movieDetailDataBean.getData().getVideo(), movieDetailDataBean.getData().getTitle(), movieDetailDataBean.getData().getDetailcover());
                         MovieDetailUI.initRadioGroup(holder.getRadioGroup(R.id.item_movie_detail_radiogroup), holder.getFrameLayout(R.id.item_movie_detail_frameLayout));
-                        MovieDetailUI.initScoreButton(holder.getCircleImageView(R.id.item_movie_detail_grade),holder.getRelativeLayout(R.id.item_movie_detail_grade_rl), MovieDetailActivity.this,movieDetailScoreBean,holder.getTextView(R.id.item_movie_detail_grade_text),holder.getTextView(R.id.item_movie_detail_grade_number));
+                        MovieDetailUI.initScoreButton(holder.getCircleImageView(R.id.item_movie_detail_grade),holder.getRelativeLayout(R.id.item_movie_detail_grade_rl), MovieDetailActivity.this,movieDetailScoreBean,holder.getTextView(R.id.item_movie_detail_grade_text),holder.getTextView(R.id.item_movie_detail_grade_number),movieDetailDataBean.getData().getId());
                         //加载图片
                         Glide.with(MovieDetailActivity.this).load(movieDetailDataBean.getData().getDetailcover()).placeholder(R.drawable.default_indi_bg).dontAnimate().thumbnail(0.1f).into(holder.getImageView(R.id.item_movie_detail_cover));
                         Glide.with(MovieDetailActivity.this).load(movieDetailStoryBean.getData().getData().get(0).getUser().getWeb_url()).placeholder(R.drawable.head).dontAnimate().thumbnail(0.1f).into(holder.getCircleImageView(R.id.item_movie_detail_story_headview));
@@ -191,6 +191,15 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailMvpV
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Const.COMMENT_REQUEST_CODE && resultCode == Const.COMMENT_RESULT_CODE) {
+            isCallback = true;
+            commentId = "0";
+            dataList.clear();
+            mPresenter.getMovieComment(getIntent().getStringExtra(Const.MOVIE_ID), commentId);
+        }else if (requestCode == Const.SCORE_REQUEST_CODE && resultCode == Const.SCORE_RESULT_CODE){
+            String score = data.getStringExtra(Const.SCORE);
+            movieDetailScoreBean.getData().setScore(score.contains("-")?"负数":score);
+            animatorAdapter.notifyDataSetChanged();
+        }else if (requestCode == Const.SCORE_REQUEST_CODE && resultCode == Const.SCORE_COMMENT_RESULT_CODE){
             isCallback = true;
             commentId = "0";
             dataList.clear();

@@ -46,8 +46,10 @@
             android:name=".ui.pagemovie.movieDetail.MovieDetailVideoActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".ui.pagemovie.movieDetail.MovieDetailScoreActivity"
-            android:theme="@style/AlertNoActionBar"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ui.oneUtils.ImagePagerActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

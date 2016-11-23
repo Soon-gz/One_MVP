@@ -206,5 +206,15 @@ public class DataManager {
         return apiService.getMygrade(movieId,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzY4NjEyNDAsInVzZXJpZCI6IjY0MDcyNzMifQ.IeccuZPGtEScIxEuVXOTwcKOiZ_hqxGOmEiFmqjvG5M");
     }
 
+    /**
+     * 提交我的分数
+     * @param score
+     * @param movieid
+     * @return
+     */
+    public Observable<JSONObject> postMyGrade(String score,String movieid){
+        return apiService.postMyGrade(score,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzkyMDE0NDcsInVzZXJpZCI6IjY0MDcyNzMifQ.nuhymkpKMR2q71Je7H2BgCwXOmaVF0Qy_Vh5peAYHL4",movieid,"3.5.0","android");
+    }
+
 
 }

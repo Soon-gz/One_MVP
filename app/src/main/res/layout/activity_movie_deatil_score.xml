@@ -3,16 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_movie_deatil_score"
-    android:background="@color/light_gray"
+    android:background="@drawable/login_bg"
     android:layout_height="match_parent"
-    android:layout_width="wrap_content"
-    android:paddingBottom="@dimen/margin_size_20_dp"
+    android:layout_width="match_parent"
     tools:context="com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemovie.movieDetail.MovieDetailScoreActivity">
     <com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.CusInstrumentPanelView
         android:id="@+id/info"
-        android:paddingTop="@dimen/margin_size_10_dp"
-        android:background="@color/light_gray"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_size_60_dp"
         android:layout_height="@dimen/margin_size_230_dp"
         app:textColor="@color/black"
         app:textSize="@dimen/text_size_12_sp"
@@ -27,4 +25,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""/>
+    <LinearLayout
+        android:layout_below="@+id/movie_detail_score"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_size_50_dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/score_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_size_40_dp"
+            android:drawableTop="@drawable/movie_done"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:text="@string/complete"/>
+        <TextView
+            android:id="@+id/score_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_40_dp"
+            android:drawableTop="@drawable/moviereview_white"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:text="@string/comment"/>
+    </LinearLayout>
 </RelativeLayout>

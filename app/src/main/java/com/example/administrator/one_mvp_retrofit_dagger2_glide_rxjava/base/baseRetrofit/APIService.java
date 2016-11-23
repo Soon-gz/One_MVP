@@ -218,4 +218,19 @@ public interface APIService {
      */
     @GET("movie/mygrade/{movieId}")
     Observable<JSONObject> getMygrade(@Path("movieId")String movieId, @Query("user_id")String user_id,@Query("jwt")String jwt);
+
+    /**
+     * 提交我的评分
+     * @param score
+     * @param user_id
+     * @param jwt
+     * @param movieid
+     * @param version
+     * @param platform
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("movie/grade")
+    Observable<JSONObject> postMyGrade(@Field("score")String score,@Field("user_id")String user_id,@Field("jwt")String jwt,
+                                       @Field("movieid")String movieid,@Field("version")String version,@Field("platform")String platform);
 }

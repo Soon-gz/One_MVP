@@ -27,6 +27,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.Comment.CommentActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.ImagePagerActivity;
 
 import java.util.List;
 
@@ -69,12 +70,20 @@ public class MovieDetailUI {
      * @param movieDetailDataBean
      * @param context
      */
-    public static void initHorizontalScollView(HorizontalScrollView horizontalScrollView, MovieDetailDataBean movieDetailDataBean, Context context){
+    public static void initHorizontalScollView(HorizontalScrollView horizontalScrollView, final MovieDetailDataBean movieDetailDataBean, final Context context){
         if (movieDetailDataBean.getData().getPhoto().size() > 0){
             horizontalScrollView.removeAllViews();
             LinearLayout linearLayout = new LinearLayout(context);
             for (int index = 0; index < movieDetailDataBean.getData().getPhoto().size(); index++) {
                 ImageView imageView = new ImageView(context);
+                final int finalIndex = index;
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ImagePagerActivity.startImagePagerActivity(context,movieDetailDataBean.getData().getPhoto(), finalIndex,new ImagePagerActivity.ImageSize(view.getMeasuredWidth(), view
+                                .getMeasuredHeight()));
+                    }
+                });
                 imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 imageView.setPadding(10,10,10,10);
                 TextView textView = new TextView(context);
@@ -234,7 +243,7 @@ public class MovieDetailUI {
         });
     }
 
-    public static void initScoreButton(CircleImageView imageButton, RelativeLayout relativeLayout, final MovieDetailActivity movieDetailActivity, final MovieDetailScoreBean movieDetailScoreBean, TextView textView, TextView item_movie_detail_grade_number) {
+    public static void initScoreButton(CircleImageView imageButton, RelativeLayout relativeLayout, final MovieDetailActivity movieDetailActivity, final MovieDetailScoreBean movieDetailScoreBean, TextView textView, TextView item_movie_detail_grade_number, final String movieId) {
         if (null == movieDetailScoreBean.getData().getScore()){
             item_movie_detail_grade_number.setText("");
             imageButton.setImageResource(0);
@@ -242,7 +251,10 @@ public class MovieDetailUI {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class).putExtra(Const.MOVIE_SCORE_TYPE,Const.NO_SCORE));
+                    Intent intent = new Intent(movieDetailActivity,MovieDetailScoreActivity.class);
+                    intent.putExtra(Const.MOVIE_SCORE_TYPE,Const.NO_SCORE);
+                    intent.putExtra(Const.ITEM_ID,movieId);
+                    movieDetailActivity.startActivityForResult(intent,Const.SCORE_REQUEST_CODE);
                 }
             });
         }else {
@@ -252,7 +264,10 @@ public class MovieDetailUI {
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    movieDetailActivity.startActivity(new Intent(movieDetailActivity,MovieDetailScoreActivity.class).putExtra(Const.MOVIE_SCORE_TYPE,movieDetailScoreBean.getData().getScore()));
+                    Intent intent = new Intent(movieDetailActivity,MovieDetailScoreActivity.class);
+                    intent.putExtra(Const.MOVIE_SCORE_TYPE,movieDetailScoreBean.getData().getScore());
+                    intent.putExtra(Const.ITEM_ID,movieId);
+                    movieDetailActivity.startActivityForResult(intent,Const.SCORE_REQUEST_CODE);
                 }
             });
         }

@@ -2,6 +2,7 @@ package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.guide
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ public class GuideActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (SharedPreferencesUtils.getBoolean(Const.ISFIRSTRUN)){
             START_TYPE = Const.START_WELCOME;
         }else {
@@ -71,10 +73,5 @@ public class GuideActivity extends BaseActivity {
                 guide_iv.startAnimation(animation);
                 break;
         }
-    }
-
-    @Override
-    public int getStatusColor() {
-        return R.color.white;
     }
 }

@@ -73,6 +73,7 @@ public class Const {
     public static final String MOVIE_VIDEO_INNER_COVER = "MOVIE_VIDEO_INNER_COVER";
     public static final String MOVIE_SCORE_TYPE = "MOVIE_SCORE_TYPE";
     public static final String NO_SCORE = "NO_SCORE";
+    public static final String SCORE = "SCORE";
 
     //热门评论
     public static final String HOT_CONTENT = "0";
@@ -81,6 +82,11 @@ public class Const {
     public static final String COMMETNT_TYPE = "COMMETNT_TYPE";
     public static final int COMMENT_REQUEST_CODE = 1000;
     public static final int COMMENT_RESULT_CODE = 1001;
+
+    public static final int SCORE_REQUEST_CODE = 1002;
+    public static final int SCORE_RESULT_CODE = 1004;
+    public static final int SCORE_COMMENT_RESULT_CODE = 1005;
+
 
     //刷新
     public static final String REFRESH = "REFRESH";

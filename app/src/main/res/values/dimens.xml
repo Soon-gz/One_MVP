@@ -47,6 +47,7 @@
     <dimen name="margin_size_140_dp">140dp</dimen>
     <dimen name="margin_size_150_dp">150dp</dimen>
     <dimen name="margin_size_160_dp">160dp</dimen>
+    <dimen name="margin_size_166_dp">166dp</dimen>
     <dimen name="margin_size_170_dp">170dp</dimen>
     <dimen name="margin_size_180_dp">180dp</dimen>
     <dimen name="margin_size_200_dp">200dp</dimen>

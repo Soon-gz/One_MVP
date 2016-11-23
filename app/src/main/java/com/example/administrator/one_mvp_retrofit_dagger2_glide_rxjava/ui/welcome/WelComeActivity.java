@@ -4,6 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
@@ -38,6 +39,7 @@ public class WelComeActivity extends BaseActivity {
 
     @Override
     protected void initViewsAndEvents(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //判断是否是第一次运行软件
         SharedPreferencesUtils.put(Const.ISFIRSTRUN,false);
         //初始化
@@ -77,8 +79,4 @@ public class WelComeActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public int getStatusColor() {
-        return R.color.welcome_white;
-    }
 }

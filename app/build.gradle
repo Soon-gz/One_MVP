@@ -58,4 +58,5 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
     compile 'fm.jiecao:jiecaovideoplayer:4.8.3'    //videoview播放控件
     compile 'com.fjwangjia.android:instrumentpanel:1.0.8'//评分控件
+    compile 'com.commit451:PhotoView:1.2.4'    //photoView
 }
