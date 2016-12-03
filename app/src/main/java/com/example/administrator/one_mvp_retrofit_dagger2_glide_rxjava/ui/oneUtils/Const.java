@@ -98,6 +98,9 @@ public class Const {
     public static final String SEARCH_MOVIE = "movie";
     public static final String SEARCH_AUTHOR = "author";
 
+    //进入个人详情界面标签
+    public static final String USER_ID = "userId";
+
 
 
 }

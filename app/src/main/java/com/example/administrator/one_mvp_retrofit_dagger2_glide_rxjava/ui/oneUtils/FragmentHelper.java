@@ -2,11 +2,14 @@ package com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUt
 
 
 
+import android.app.Activity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.R;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseMvp.BaseFragment;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagemain.MainPageFragment;
@@ -16,6 +19,8 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.pagere
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Shuwen on 2016/10/25.
@@ -71,5 +76,13 @@ public class FragmentHelper {
                 frameLayout.getChildAt(index).setVisibility(View.GONE);
             }
         }
+    }
+    //设置圆形头像
+    public static void setCircleImage(CircleImageView circleImage, String imageUrl, Activity activity){
+        Glide.with(activity).load(imageUrl).dontAnimate().thumbnail(0.1f).placeholder(R.drawable.head).into(circleImage);
+    }
+    //设置图片
+    public static void setImage(ImageView circleImage, String imageUrl, Activity activity){
+        Glide.with(activity).load(imageUrl).dontAnimate().thumbnail(0.1f).placeholder(R.drawable.head).into(circleImage);
     }
 }

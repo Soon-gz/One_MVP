@@ -12,6 +12,7 @@ import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.base
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ActivityManager;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.base.baseUtils.ToastUtils;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.Const;
+import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.DataCache;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.oneUtils.FragmentHelper;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.personaInfo.PersonalActivity;
 import com.example.administrator.one_mvp_retrofit_dagger2_glide_rxjava.ui.search.SearchActivity;
@@ -47,6 +48,8 @@ public class MainActivity extends BaseActivity {
         FragmentHelper.initFragments(getSupportFragmentManager());
         FragmentHelper.initMainFragments();
         initListener();
+        //初始化缓存数据
+        DataCache.setUserId("6407273");
     }
 
     private void initListener() {

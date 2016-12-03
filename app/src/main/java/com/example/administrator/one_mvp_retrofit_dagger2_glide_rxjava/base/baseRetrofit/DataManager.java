@@ -216,5 +216,14 @@ public class DataManager {
         return apiService.postMyGrade(score,"6407273","eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0NzkyMDE0NDcsInVzZXJpZCI6IjY0MDcyNzMifQ.nuhymkpKMR2q71Je7H2BgCwXOmaVF0Qy_Vh5peAYHL4",movieid,"3.5.0","android");
     }
 
+    /**
+     * 获取用户详细信息
+     * @param userId
+     * @return
+     */
+    public Observable<JSONObject> getUserInfo(String userId){
+        return apiService.getUserInfo(userId);
+    }
+
 
 }

@@ -22,6 +22,7 @@
     <string name="search_hint">请输入需要搜索的内容</string>
     <string name="login_hint">未登录</string>
     <string name="setting">设置</string>
+    <string name="collection">收藏</string>
     <string name="setting_night_mode">夜间模式</string>
     <string name="setting_other">其他设置</string>
     <string name="movie_grade">评分</string>
@@ -30,6 +31,12 @@
     <string name="movie_table">一个.电影表</string>
     <string name="complete">完成</string>
     <string name="comment">评论</string>
+    <string name="personal_little">小记</string>
+    <string name="personal_music">歌单</string>
+    <string name="personal_collection">图文</string>
+    <string name="personal_reading">文章</string>
+    <string name="personal_movie_collection">电影</string>
+    <string name="personal_message_collection">消息</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

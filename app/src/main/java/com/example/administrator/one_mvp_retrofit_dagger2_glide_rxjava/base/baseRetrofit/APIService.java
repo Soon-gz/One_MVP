@@ -233,4 +233,12 @@ public interface APIService {
     @POST("movie/grade")
     Observable<JSONObject> postMyGrade(@Field("score")String score,@Field("user_id")String user_id,@Field("jwt")String jwt,
                                        @Field("movieid")String movieid,@Field("version")String version,@Field("platform")String platform);
+
+    /**
+     * 获取用户的详细信息
+     * @param userId
+     * @return
+     */
+    @GET("user/info/{userId}")
+    Observable<JSONObject> getUserInfo(@Path("userId") String userId);
 }
